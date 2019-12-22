@@ -1,0 +1,14 @@
+<view class="all">
+  <view class="viewBlank"></view>
+  <view class="out">
+    <canvas style="width: 300px; height : 300px;" canvas-id="pic_canvas"></canvas>
+  </view>
+  <view class="viewBlank"></view>
+  <view class="btnList">
+    <view class="btnBlank"></view>
+    <button type="default">选择瓷砖</button>
+    <view class="btnBlank"></view>
+    <button type="default">上传瓷砖</button>
+    <view class="btnBlank"></view>
+  </view>
+</view>
