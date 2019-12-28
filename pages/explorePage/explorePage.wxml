@@ -1,0 +1,33 @@
+<scroll-view class="all" scroll-y id="content">
+  <swiper indicator-dots="true" interval="3000" duration="1000" autoplay="true">
+    <block wx:for="{{swiperPicUrl}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="scaleToFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='iconBar'>
+    <block wx:for="{{iconData}}" wx:key="*this">
+      <view class="iconView">
+        <image src="{{item.icon}}" class="icon" mode="scaleToFill"></image>
+        <text class='iconText'>{{item.text}}</text>
+      </view>
+    </block>
+  </view>
+  <text class="title">成品预览</text>
+  <view>
+    <block wx:for="{{viewData}}" wx:key="*this">
+      <view class="doubleView">
+        <view class="theView">
+          <image class="image" src="{{item.picPath1}}" mode="scaleToFill"></image>
+          <text>{{item.text1}}</text>
+        </view>
+        <view class="theView">
+          <image class="image" src="{{item.picPath2}}" mode="scaleToFill"></image>
+          <text>{{item.text2}}</text>
+        </view>
+      </view>
+      <view class="blank"></view>
+    </block>
+  </view>
+</scroll-view>

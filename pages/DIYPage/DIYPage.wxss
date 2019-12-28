@@ -11,38 +11,13 @@ page{
 }
 
 .out{
-  height: 60%;
-  width: 100%;
+  height: 340px;
+  width: 340px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-}
-
-.outBlankLeft{
-  height: 100%;
-  width: 10%;
-}
-
-.outBlankRight{
-  height: 100%;
-  width: 10%;
-}
-
-.in{
-  height: 100%;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.picView{
-  height: 25%;
-  width: 100%;
-}
-
-.pic{
-  height: 100%;
-  width: 25%;
+  align-self: center;
+  flex-wrap: wrap;
 }
 
 
@@ -60,6 +35,11 @@ page{
 }
 
 .viewBlank{
-  height: 10%;
+  height: 15%;
   width: 100%;
+}
+
+.myCanvas{
+  width: 85px;
+  height : 85px;
 }
