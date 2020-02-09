@@ -1,0 +1,32 @@
+<!--pages/teachPage/teachPage.wxml-->
+<wxs module="func">
+  var add = function(num){
+    var temp = num + 1
+    return temp
+  }
+
+  module.exports.add = add;
+</wxs>
+
+
+<view class="titleView">
+  <text class="title">装修指南</text>
+</view>
+<block wx:for="{{topicList}}" wx:key="title">
+  <view class="backgroudView"></view>
+  <view class="topicView">
+    <view class="rankView">
+      <text class="rank">{{func.add(index)}}</text>
+    </view>
+    <text class="text" bindtap="tapped" data-num="{{index}}">{{item.topic}}</text>
+    <image src="/images/fire.png" class="img"></image>
+    <text class="degree">{{item.degree}}</text>
+  </view>
+  <view wx:if="{{topicList[index].clicked}}" class='textView1'>
+    <view class="textView2">
+      <block wx:for="{{item.text}}" wx:for-item="theText" wx:key="*this">
+        <text class='textStyle'>{{theText}}</text>
+      </block>
+    </view>
+  </view>
+</block>

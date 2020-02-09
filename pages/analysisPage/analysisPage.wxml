@@ -1,0 +1,32 @@
+<block wx:for="{{Datalist}}" wx:key="*this">
+  <view class="bodyView">
+    <view class="leftView">
+      <image src="{{item.protraitPath}}" class="thePortrait"></image>
+    </view>
+    <view class="rightView">
+      <view class="nameView">
+        <text class="theName">{{item.name}}</text>
+      </view>
+      <view class="contextView">
+        <text class="theText">{{item.text}}</text>
+      </view>
+      <view class="picView">
+        <block wx:for="{{item.picPath}}" wx:for-item="path" wx:key="*this">
+          <image src="{{path}}" class="thePic"></image>
+        </block>
+      </view>
+      <view class="funcView">
+        <text class="theTime">{{item.time}}</text>
+        <view class="iconView">
+          <image src="/images/comment.png" class="icon"></image>
+          <image src="/images/explore/button-icon/commend.png" class="icon"></image>
+        </view>
+      </view>
+      <view class="commentView">
+        <text class="commentName"></text>
+        <text class="theComment"></text>
+      </view>
+    </view>
+  </view>
+</block>
+<image src="/images/add.png" class="addIcon" bindtap="gotoAddPage"></image>

@@ -5,7 +5,7 @@ Page({
    */
   data: {
     button1Text: "上传图片",
-    button2Text: "选择瓷砖",
+    button2Text: "我的砖库",
     picPath: "/images/biscuit.png",
     width: 85,
     rotate: [{num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, 

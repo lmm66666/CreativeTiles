@@ -1,0 +1,30 @@
+<!--pages/storagePage/storagePage.wxml-->
+<view class="titleView">
+  <text class="title">我的砖库</text>
+</view>
+<image class="addImage" src="/images/addRed.png" bindtap="showMaskClicked" wx:if="{{!showMask}}"></image>
+<swiper class="swiperView" indicator-dots="true" duration="600">
+	<block wx:for="{{picNum}}" wx:key="*this">
+		<swiper-item>
+      <view class="containerView">
+        <block wx:for="{{viewNum}}" wx:key="*this">
+          <view class="unitView">
+            <image class="imageClass" src="/images/biscuit.png"></image>
+            <text >我是小饼干</text>
+          </view>
+        </block>
+      </view>
+		</swiper-item>
+	</block>
+</swiper>
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showMask}}">
+  <view class="maskTop">
+    <text class="maskTopText" bindtap="hideMaskClicked">{{maskTopLeft}}</text>
+    <text class="maskTopText">{{maskTopRight}}</text>
+  </view>
+  <text class="maskTitle">{{maskTitle}}</text>
+  <image class="maskImage" src="{{addImagePath}}" bindtap="maskAddClicked" ></image>
+  <input class="maskInput" placeholder="输入名称"></input>
+  <view class="maskHolderLine"></view>
+  <image class="addIcon" src="/images/addBlue.png" bindtap="addImageClicked"></image>
+</view>

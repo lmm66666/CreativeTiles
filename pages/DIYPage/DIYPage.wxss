@@ -39,6 +39,13 @@ page{
   width: 100%;
 }
 
+.theButton{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 .myCanvas{
   width: 85px;
   height : 85px;

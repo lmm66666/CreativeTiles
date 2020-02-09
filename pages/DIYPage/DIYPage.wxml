@@ -21,9 +21,9 @@
   <view class="viewBlank"></view>
   <view class="btnList">
     <view class="btnBlank"></view>
-    <button type="default" bindtap="btnClicked">{{button1Text}}</button>
+    <button class="theButton" type="default" bindtap="btnClicked">{{button1Text}}</button>
     <view class="btnBlank"></view>
-    <button type="default">{{button2Text}}</button>
+    <button class="theButton" type="default">{{button2Text}}</button>
     <view class="btnBlank"></view>
   </view>
 </view>
