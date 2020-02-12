@@ -1,5 +1,6 @@
 {
 	"description": "项目配置文件",
+	"cloudfunctionRoot": "cloud/",
 	"packOptions": {
 		"ignore": []
 	},
@@ -24,9 +25,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.4",
-	"appid": "wxf7dc8b32ec9b1673",
+	"appid": "wxa9099f076028dda7",
 	"projectname": "miniprogram-1",
-	"cloudfunctionTemplateRoot": "",
 	"watchOptions": {
 		"ignore": []
 	},
@@ -36,6 +36,7 @@
 	"scripts": {},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,

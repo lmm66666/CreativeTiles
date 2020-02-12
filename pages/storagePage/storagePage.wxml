@@ -4,15 +4,19 @@
 </view>
 <image class="addImage" src="/images/addRed.png" bindtap="showMaskClicked" wx:if="{{!showMask}}"></image>
 <swiper class="swiperView" indicator-dots="true" duration="600">
-	<block wx:for="{{picNum}}" wx:key="*this">
+	<block wx:for="{{swiperNum}}" wx:for-index="i" wx:key="*this">
 		<swiper-item>
-      <view class="containerView">
-        <block wx:for="{{viewNum}}" wx:key="*this">
+      <view class="containerView" wx:if="{{viewNum[i] != 0}}">
+        <block wx:for="{{viewNum[i]}}" wx:for-index="j" wx:key="*this">
           <view class="unitView">
-            <image class="imageClass" src="/images/biscuit.png"></image>
-            <text >我是小饼干</text>
+            <image class="imageClass" src="{{storage.picPath[6*i+j]}}"></image>
+            <text >{{storage.picName[6*i+j]}}</text>
           </view>
         </block>
+      </view>
+      <view class="emptyView" wx:else>
+        <text class="emptyText">{{emptyText1}}</text>
+        <text class="emptyText">{{emptyText2}}</text>
       </view>
 		</swiper-item>
 	</block>
@@ -20,11 +24,11 @@
 <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showMask}}">
   <view class="maskTop">
     <text class="maskTopText" bindtap="hideMaskClicked">{{maskTopLeft}}</text>
-    <text class="maskTopText">{{maskTopRight}}</text>
+    <text class="maskTopText" bindtap="uploadClicked">{{maskTopRight}}</text>
   </view>
   <text class="maskTitle">{{maskTitle}}</text>
-  <image class="maskImage" src="{{addImagePath}}" bindtap="maskAddClicked" ></image>
-  <input class="maskInput" placeholder="输入名称"></input>
+  <image class="maskImage" src="{{addImagePath}}"></image>
+  <input class="maskInput" placeholder="输入名称" bindinput="addImageNameInput"></input>
   <view class="maskHolderLine"></view>
-  <image class="addIcon" src="/images/addBlue.png" bindtap="addImageClicked"></image>
+  <image class="addIcon" src="/images/addBlue.png" bindtap="addImageClicked" wx:if="{{addClicked}}"></image>
 </view>

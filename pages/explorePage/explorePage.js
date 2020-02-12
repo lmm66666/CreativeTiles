@@ -1,3 +1,5 @@
+var app = getApp()
+
 Page({
 
   /**
@@ -11,21 +13,18 @@ Page({
       'https://www.newzhongyuan.com/data/2017/g/www.gdxzytc.kenfor.com//db_file/201907/13/1563012152811114.jpg',
       'https://www.newzhongyuan.com/data/2017/g/www.gdxzytc.kenfor.com//db_file/201907/13/1563012549154999.jpg'
     ], 
-    iconData:[{icon: '/images/commend.png', text: '强烈推荐'},
-              { icon: '/images/favourite.png', text: '我的收藏'},
-              { icon: '/images/money.png', text: '价格估算'},
-              { icon: '/images/history.png', text: '价格走势'}],
-    viewData: [{ picPath1: "http://www.monalisa.com.cn/UploadFile/products/e72ca080-918d-430c-baf3-83cf8021da44.jpg", text1: "新黑白根", picPath2: "http://www.monalisa.com.cn/UploadFile/products/419297cc-4c39-4d5c-a1d2-9497135e7c64.jpg", text2: "大漠流金"},
-      { picPath1: "http://www.monalisa.com.cn/UploadFile/products/c869276f-e9e1-456c-a792-28e87ca4bf45.jpg", text1: "顶级鱼肚白", picPath2: "http://www.monalisa.com.cn/UploadFile/products/5d8740e5-184f-49bd-bd7a-66ca17c9818f.jpg", text2: "新钻石流星" },
-      { picPath1: "http://www.monalisa.com.cn/UploadFile/products/d1c077fa-aadc-4e90-8038-b1d5252cdcad.jpg", text1: "新梦幻宝蓝", picPath2: "http://www.monalisa.com.cn/UploadFile/products/d1eeb6cd-d29e-4c05-9def-5cb8541b94c6.jpg", text2: "碧海云天" },
-      { picPath1: "http://www.monalisa.com.cn/UploadFile/products/65c7e70d-39f4-41b1-ab20-3306af2d72b8.jpg", text1: "江山如画", picPath2: "http://www.monalisa.com.cn/UploadFile/products/a3d84cd3-f140-4833-baea-5584373f5220.jpg", text2: "星尘灰" },
-      { picPath1: "", text1: "", picPath2: "", text2: "" },
-      { picPath1: "", text1: "", picPath2: "", text2: "" },
-      { picPath1: "", text1: "", picPath2: "", text2: "" },
-      { picPath1: "", text1: "", picPath2: "", text2: "" },
-      { picPath1: "", text1: "", picPath2: "", text2: "" },
-      { picPath1: "", text1: "", picPath2: "", text2: "" }
-    ]
+    iconData:[{ icon: '/images/explore/button-icon/commend.png', text: '瓷砖推荐'},
+              { icon: '/images/explore/button-icon/teach.png', text: '装修指南'},
+              { icon: '/images/explore/button-icon/money.png', text: '价格估算'},
+              { icon: '/images/explore/button-icon/depository.png', text: '我的砖库'}],
+    title: "品牌推荐",
+    viewData: [{ picPath1: "/images/explore/brand-icon/makeboluo.jpg", text1: "行业新高度", id1: "makeboluo",
+                picPath2: "/images/explore/brand-icon/mengnalisha.jpeg", text2: "每个家都值得拥有", id2: "mengnalisha"},
+              { picPath1: "/images/explore/brand-icon/dongpeng.jpeg", text1: "美好生活 用心设计", id1: "dongpeng",
+                picPath2: "/images/explore/brand-icon/guanzhu.jpg", text2: "民族品牌 中华风采", id2: "guanzhu" },
+              { picPath1: "/images/explore/brand-icon/nuobeier.jpeg", text1: "更新技术 更好瓷砖", id1: "nuobeier", 
+                picPath2: "/images/explore/brand-icon/xinzhongyuan.jpg", text2: "有设计感的一线品牌", id2: "xinzhongyuan"}]
+
   },
 
   /**
@@ -39,7 +38,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
@@ -82,5 +81,90 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  toDetails: function (e) {
+    var brand = e.currentTarget.id
+    var app = ""
+    if (brand == "makeboluo"){
+      app = 'wx725c39fe8eb5e9bd'
+      this.toMiniProgram(app)
+    }
+    else if (brand == "mengnalisha"){
+      app = 'wxdfa0c705aefeb61c'
+      this.toMiniProgram(app)
+    }
+    else if (brand == "dongpeng"){
+      app = "wx70128fc6bcffbefc"
+      this.toMiniProgram(app)
+    }
+    else if (brand == "guanzhu"){
+      app = "wx5b6dd5f6d7fd5ef3"
+      this.toMiniProgram(app)
+    }
+    else if (brand == "nuobeier"){
+      app = "wx9afb41c0b9873121"
+      var that = this
+      wx.showModal({
+        title: '提示',
+        confirmText: '确定',
+        showCancel: false,
+        content: '该小程序由地方经销商提供，仅供参考！',
+        success: function (res) {
+          if (res.confirm) {
+            that.toMiniProgram(app)
+          }
+        }       
+      })
+    }
+    else if (brand == "xinzhongyuan"){
+      app = "wxb1e54265cc309c76"
+      this.toMiniProgram(app)
+    }
+  },
+
+  iconClickded(e){
+    var name = e.target.dataset.name
+    console.log(name)
+    if (name == "装修指南"){
+      wx.navigateTo({
+        url: '/pages/teachPage/teachPage',
+        complete: (res) => {},
+        events: {},
+        fail: (res) => {},
+        success: (result) => {},
+      })
+    }
+    else if (name == "价格估算"){
+      wx.navigateTo({
+        url: '/pages/calcPage/calcPage',
+        complete: (res) => {},
+        events: {},
+        fail: (res) => {},
+        success: (result) => {},
+      })
+    }
+    else if (name == "我的砖库"){
+      wx.navigateTo({
+        url: '/pages/storagePage/storagePage',
+        complete: (res) => {},
+        events: {},
+        fail: (res) => {},
+        success: (result) => {},
+      })
+    }
+  },
+
+  toMiniProgram:function(app){
+    wx.navigateToMiniProgram({
+      appId: app,
+      path: '',
+      extraData: {
+
+      },
+      success(res) {
+        // 打开成功
+      }
+    })
   }
 })
