@@ -1,0 +1,138 @@
+/* pages/storagePage/storagePage.wxss */
+page{
+  height: 100%;
+}
+
+.titleView{
+  height: 8%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  font-size: x-large;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.addImage{
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 40rpx;
+}
+
+.swiperView{
+  height: 88%;
+  width: 100%;
+}
+
+.containerView{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.unitView{
+  height: 300rpx;
+  width: 44%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  margin-left: 4%;
+  margin-bottom: 14rpx;
+}
+
+.imageClass{
+  height: 80%;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.textClass{
+  height: 20%;
+  font-size: medium;
+}
+
+.mask{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  right: 20rpx;
+  bottom: 0rpx;
+  z-index: 2;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.maskTop{
+  height: 8%;
+  width: 100%;
+  color: cornflowerblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.maskTopText{
+  font-size: medium;
+  margin: 40rpx;
+}
+
+.maskTitle{
+  font-size: x-large;
+  margin-bottom: 60rpx;
+}
+
+.maskImage{
+  height: 400rpx;
+  width: 650rpx;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.maskInput{
+  width: 200rpx;
+  height: 40rpx;
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.maskHolderLine{
+  width: 250rpx;
+  height: 2rpx;
+  background-color: black;
+  margin-top: 5rpx;
+}
+
+.addIcon{
+  position: absolute;
+  height: 60rpx;
+  width: 60rpx;
+  top:400rpx
+}
+
+.emptyView{
+  height: 1000rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptyText{
+  font-size: larger;
+  color: cornflowerblue;
+}

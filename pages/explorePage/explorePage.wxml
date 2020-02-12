@@ -1,0 +1,38 @@
+<swiper indicator-dots="true" interval="3000" duration="600" autoplay="true">
+	<block wx:for="{{swiperPicUrl}}" wx:key="*this">
+		<swiper-item>
+			<image src="{{item}}" class="slide-image" mode="scaleToFill"></image>
+		</swiper-item>
+	</block>
+</swiper>
+<view class='iconBar'>
+	<block wx:for="{{iconData}}" wx:key="*this">
+		<view class="iconView">
+			<image src="{{item.icon}}" class="icon" mode="scaleToFill" data-name="{{item.text}}" bindtap="iconClickded"></image>
+			<text class='iconText'>{{item.text}}</text>
+		</view>
+	</block>
+</view>
+<view class="titleView">
+	<image src="/images/titleImg.png" class="titleImg" mode="scaleToFill"></image>
+	<text class="title">{{title}}</text>
+</view>
+<view>
+	<block wx:for="{{viewData}}" wx:key="*this">
+		<view class="doubleView">
+			<view class="theView" bindtap="toDetails" id="{{item.id1}}">
+				<image class="image" src="{{item.picPath1}}" mode="scaleToFill"></image>
+				<view class="theView_textView">
+					<text class="theView_text">{{item.text1}}</text>
+				</view>
+			</view>
+			<view class="theView" bindtap="toDetails" id="{{item.id2}}">
+				<image class="image" src="{{item.picPath2}}" mode="scaleToFill"></image>
+				<view class="theView_textView">
+					<text class="theView_text">{{item.text2}}</text>
+				</view>
+			</view>
+		</view>
+		<view class="blank"></view>
+	</block>
+</view>

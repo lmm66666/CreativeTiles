@@ -1,0 +1,29 @@
+<view class="all">
+  <view class="viewBlank"></view>
+  <view class="out">
+    <canvas class="myCanvas" canvas-id="picCanvas1" bindtap="picClicked" data-name="1"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas2" bindtap="picClicked" data-name="2"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas3" bindtap="picClicked" data-name="3"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas4" bindtap="picClicked" data-name="4"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas5" bindtap="picClicked" data-name="5"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas6" bindtap="picClicked" data-name="6"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas7" bindtap="picClicked" data-name="7"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas8" bindtap="picClicked" data-name="8"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas9" bindtap="picClicked" data-name="9"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas10" bindtap="picClicked" data-name="10"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas11" bindtap="picClicked" data-name="11"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas12" bindtap="picClicked" data-name="12"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas13" bindtap="picClicked" data-name="13"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas14" bindtap="picClicked" data-name="14"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas15" bindtap="picClicked" data-name="15"></canvas>
+    <canvas class="myCanvas" canvas-id="picCanvas16" bindtap="picClicked" data-name="16"></canvas>
+  </view>
+  <view class="viewBlank"></view>
+  <view class="btnList">
+    <view class="btnBlank"></view>
+    <button class="theButton" type="default" bindtap="btnClicked">{{button1Text}}</button>
+    <view class="btnBlank"></view>
+    <button class="theButton" type="default">{{button2Text}}</button>
+    <view class="btnBlank"></view>
+  </view>
+</view>

@@ -1,0 +1,103 @@
+
+.all{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bodyView{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+}
+
+.leftView{
+  width: 20%;
+}
+
+.thePortrait{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+  border-radius: 5px;
+}
+
+.rightView{
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.nameView{
+  height: 50rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.theName{
+  font-size: large;
+  color: cornflowerblue;
+  margin-left: 10rpx;
+}
+
+.contextView{
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.theText{
+  font-size: medium;
+  margin-left: 10rpx;
+}
+
+.picView{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.thePic{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 10rpx;
+}
+
+.funcView{
+  height: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.iconView{
+  width: 30%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 40rpx;
+}
+
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.theTime{
+  font-size: small;
+  align-self: center;
+}
+.commentView{
+  width: 100%;
+}
+
+.addIcon{
+  height: 100rpx;
+  width: 100rpx;
+  position:fixed;
+  right: 50rpx;
+  bottom: 100rpx;
+}

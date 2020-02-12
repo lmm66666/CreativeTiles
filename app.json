@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/explorePage/explorePage",
+    "pages/analysisPage/analysisPage",
+    "pages/myselfPage/myselfPage",
+    "pages/DIYPage/DIYPage",
+    "pages/addPage/addPage",
+    "pages/calcPage/calcPage",
+    "pages/teachPage/teachPage",
+    "pages/storagePage/storagePage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "瓷砖创意工坊",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "borderStyle": "black",
+    "selectedColor": "#ff6600",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/explorePage/explorePage",
+        "text": "探索",
+        "iconPath": "images/explore.png",
+        "selectedIconPath": "images/explore.png"
+      },
+      {
+        "pagePath": "pages/analysisPage/analysisPage",
+        "text": "评测",
+        "iconPath": "images/analysis.png",
+        "selectedIconPath": "images/analysis.png"
+      },
+      {
+        "pagePath": "pages/DIYPage/DIYPage",
+        "text": "diy",
+        "iconPath": "images/DIY.png",
+        "selectedIconPath": "images/DIY.png"
+      },
+      {
+        "pagePath": "pages/myselfPage/myselfPage",
+        "text": "我",
+        "iconPath": "images/myself.png",
+        "selectedIconPath": "images/myself.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wx725c39fe8eb5e9bd",
+    "wxdfa0c705aefeb61c",
+    "wx70128fc6bcffbefc",
+    "wx5b6dd5f6d7fd5ef3",
+    "wx9afb41c0b9873121",
+    "wxb1e54265cc309c76"
+  ]
+}
