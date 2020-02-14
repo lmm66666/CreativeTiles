@@ -103,5 +103,14 @@ Page({
       fail: (res) => {},
       success: (result) => {},
     })
+  },
+
+  picClicked:function(e){
+    console.log("picClicked: " + e.currentTarget.dataset.name)
+    var currentUrl = e.currentTarget.dataset.name
+    wx.previewImage({
+      current: currentUrl, // 当前显示图片的http链接
+      urls: [currentUrl]
+    })
   }
 })

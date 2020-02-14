@@ -1,0 +1,82 @@
+/* pages/commendPage/commendPage.wxss */
+page{
+  height: 100%;
+}
+
+.titleView{
+  height: 8%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  font-size: x-large;
+}
+
+.swiperView{
+  height: 88%;
+  width: 100%;
+}
+
+.all{
+  height: 1200rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.nameText{
+  font-size: larger;
+}
+
+.pic1{
+  height: 40%;
+  width: 92%;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  border-radius: 10px;
+}
+
+.introduce{
+  font-size: medium;
+  align-self: flex-start;
+  margin-left: 20rpx;
+}
+
+.downView{
+  height: 40%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.unitView{
+  height: 300rpx;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 30rpx;
+}
+
+.tilePic{
+  height:150rpx;
+  width: 100%;
+}
+
+.tileName{
+  font-size: small;
+  margin-top: 20rpx;
+}
+
+.detailText{
+  font-size: 10px;
+  margin-top: 8rpx;
+}

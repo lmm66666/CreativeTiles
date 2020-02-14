@@ -9,7 +9,7 @@
       <view class="containerView" wx:if="{{viewNum[i] != 0}}">
         <block wx:for="{{viewNum[i]}}" wx:for-index="j" wx:key="*this">
           <view class="unitView">
-            <image class="imageClass" src="{{storage.picPath[6*i+j]}}"></image>
+            <image class="imageClass" src="{{storage.picPath[6*i+j]}}" bindtap="picClicked"></image>
             <text >{{storage.picName[6*i+j]}}</text>
           </view>
         </block>

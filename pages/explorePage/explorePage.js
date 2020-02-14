@@ -13,7 +13,7 @@ Page({
       'https://www.newzhongyuan.com/data/2017/g/www.gdxzytc.kenfor.com//db_file/201907/13/1563012152811114.jpg',
       'https://www.newzhongyuan.com/data/2017/g/www.gdxzytc.kenfor.com//db_file/201907/13/1563012549154999.jpg'
     ], 
-    iconData:[{ icon: '/images/explore/button-icon/commend.png', text: '瓷砖推荐'},
+    iconData:[{ icon: '/images/explore/button-icon/commend.png', text: '每日推荐'},
               { icon: '/images/explore/button-icon/teach.png', text: '装修指南'},
               { icon: '/images/explore/button-icon/money.png', text: '价格估算'},
               { icon: '/images/explore/button-icon/depository.png', text: '我的砖库'}],
@@ -147,6 +147,15 @@ Page({
     else if (name == "我的砖库"){
       wx.navigateTo({
         url: '/pages/storagePage/storagePage',
+        complete: (res) => {},
+        events: {},
+        fail: (res) => {},
+        success: (result) => {},
+      })
+    }
+    else if (name == "每日推荐"){
+      wx.navigateTo({
+        url: '/pages/commendPage/commendPage',
         complete: (res) => {},
         events: {},
         fail: (res) => {},

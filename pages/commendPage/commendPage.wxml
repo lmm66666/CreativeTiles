@@ -1,0 +1,24 @@
+<!--pages/commendPage/commendPage.wxml-->
+<view class="titleView">
+  <text class="title">每日推荐</text>
+</view>
+<swiper class="swiperView" indicator-dots="true" duration="600">
+  <block wx:for="{{dataBase}}" wx:key="*this">
+    <swiper-item>
+     <view class='all'>
+      <text class="nameText">{{item.title}}</text>
+      <image class="pic1" src="{{item.mainPic}}"></image>
+      <text class="introduce">出现的瓷砖</text>
+      <view class="downView">
+        <block wx:for="{{item.tilePath}}" wx:for-index="i" wx:for-item="this" wx:key="*this">
+          <view class="unitView">
+            <image class="tilePic" src="{{this}}" mode="aspectFill"></image>
+            <text class="tileName">{{item.brand}}</text>
+            <text class="detailText">{{item.tileName[i]}}</text>
+          </view>
+        </block>
+      </view>
+     </view>
+    </swiper-item>
+  </block>
+</swiper>
