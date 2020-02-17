@@ -2,13 +2,23 @@ page{
   height: 100%;
 }
 
-swiper{
+.theSwiper{
   width: 100%;
-  height: 400rpx;
+  height: 30%;
+  display: flex;
+  margin-top: 20rpx;
 }
 
-swiper image{
+.swiperView{
+  height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.swiperImage{
+  width: 95%;
   height: 100%;
   border-radius: 15px;
 }
@@ -65,7 +75,7 @@ swiper image{
 .image{
   height: 180rpx;
   width: 80%;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-bottom: 20rpx;
   margin-top: 20rpx;
 }
@@ -101,11 +111,11 @@ swiper image{
 .theView_text{
   font-size: 26rpx;
   color: orange;
-  margin: 8rpx;
+  margin: 4rpx;
 }
 
 .blank{
-  height: 20rpx;
+  height: 10rpx;
   width: 100%;
   background: whitesmoke;
 }

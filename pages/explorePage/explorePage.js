@@ -14,7 +14,7 @@ Page({
       'https://www.newzhongyuan.com/data/2017/g/www.gdxzytc.kenfor.com//db_file/201907/13/1563012549154999.jpg'
     ], 
     iconData:[{ icon: '/images/explore/button-icon/commend.png', text: '每日推荐'},
-              { icon: '/images/explore/button-icon/teach.png', text: '装修指南'},
+              { icon: '/images/explore/button-icon/teach.png', text: '装修百科'},
               { icon: '/images/explore/button-icon/money.png', text: '价格估算'},
               { icon: '/images/explore/button-icon/depository.png', text: '我的砖库'}],
     title: "品牌推荐",
@@ -126,7 +126,7 @@ Page({
   iconClickded(e){
     var name = e.target.dataset.name
     console.log(name)
-    if (name == "装修指南"){
+    if (name == "装修百科"){
       wx.navigateTo({
         url: '/pages/teachPage/teachPage',
         complete: (res) => {},

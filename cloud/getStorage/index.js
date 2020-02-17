@@ -14,7 +14,14 @@ exports.main = async (event, context) => {
   console.log("openid: " + openid)
   const res = await db.collection("storage").where({id: _.eq(openid)}).get({})
   console.log(res.data)
-  return {
-    data: res.data
+  if (res.data.length > 0){
+    return {
+      data: res.data[0]
+    }
+  }
+  else{
+    return {
+      data: []
+    }
   }
 }

@@ -9,9 +9,6 @@
 </wxs>
 
 
-<view class="titleView">
-  <text class="title">装修指南</text>
-</view>
 <block wx:for="{{topicList}}" wx:key="title">
   <view class="backgroudView"></view>
   <view class="topicView">

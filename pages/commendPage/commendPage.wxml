@@ -1,7 +1,5 @@
 <!--pages/commendPage/commendPage.wxml-->
-<view class="titleView">
-  <text class="title">每日推荐</text>
-</view>
+
 <swiper class="swiperView" indicator-dots="true" duration="600">
   <block wx:for="{{dataBase}}" wx:key="*this">
     <swiper-item>
@@ -12,9 +10,11 @@
       <view class="downView">
         <block wx:for="{{item.tilePath}}" wx:for-index="i" wx:for-item="this" wx:key="*this">
           <view class="unitView">
-            <image class="tilePic" src="{{this}}" mode="aspectFill"></image>
+            <image class="tilePic" src="{{this}}" mode="aspectFill" bindtap="picClicked" data-name="{{this}}"></image>
             <text class="tileName">{{item.brand}}</text>
             <text class="detailText">{{item.tileName[i]}}</text>
+            <image class="icon" wx:if="{{favourite[index][i]}}" src="/images/redHeart.png" bindtap="favourtieClicked" data-x="{{index}}" data-y="{{i}}"></image>
+            <image class="icon" wx:else src="/images/heart.png" bindtap="favourtieClicked" data-x="{{index}}" data-y="{{i}}"></image>
           </view>
         </block>
       </view>

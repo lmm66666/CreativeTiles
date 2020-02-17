@@ -28,6 +28,9 @@ Page({
    */
   onShow: function () {
     var that = this
+    wx.setNavigationBarTitle({
+      title: '装修百科' 
+    })
     DB.get({
       success(res){
         that.setData({

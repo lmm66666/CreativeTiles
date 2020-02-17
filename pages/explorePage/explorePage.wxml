@@ -1,7 +1,9 @@
-<swiper indicator-dots="true" interval="3000" duration="600" autoplay="true">
+<swiper class="theSwiper" indicator-dots="true" interval="3000" duration="600" autoplay="true">
 	<block wx:for="{{swiperPicUrl}}" wx:key="*this">
 		<swiper-item>
-			<image src="{{item}}" class="slide-image" mode="scaleToFill"></image>
+			<view class="swiperView">
+				<image src="{{item}}" class="swiperImage"></image>
+			</view>
 		</swiper-item>
 	</block>
 </swiper>

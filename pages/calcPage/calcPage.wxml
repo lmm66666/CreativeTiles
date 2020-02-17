@@ -1,40 +1,24 @@
 <!--pages/calcPage.wxml-->
-<view class="titleView">
-  <text class="title">价格估算</text>
-</view>
 <view class="all">
-  <view class="inputView">
-    <text class="introduce">输入信息</text>
-    <view class="upblockView">
-      <text class="textClass">房间面积</text>
-      <input class="inputClass" type="number" bindinput="areaInput"></input>
-      <text class="unitClass">m^2</text>
+  <block wx:for="{{detail}}">
+    <view class="unitView">
+      <text class="leftText">{{item.text1}}</text>
+      <input class="theInput" value="{{item.text3}}" type="number" style="text-align:right"
+       maxlength="5" bindinput="getInput" data-name="{{item.text1}}"></input>
+      <text class="rightText">{{item.text2}}</text>
     </view>
-    <view class="upblockView">
-      <text class="textClass">瓷砖单价</text>
-      <input class="inputClass" type="number" bindinput="unitPriceInput"></input>
-      <text class="unitClass">元</text>
+  </block>
+  <button class="theButton" type="primary" bindtap="btnClicked">{{btnText}}</button>
+  <view class="answerView" wx:if="{{show}}">
+    <view class="downView">
+      <text class="answerText1">{{answer[0].text1}}</text>
+      <text class="answerNum1">{{tileNum}}</text>
+      <text class="answerText1">{{answer[0].text2}}</text>
     </view>
-    <view class="upblockView">
-      <text class="textClass">瓷砖面积</text>
-      <input class="inputClass" type="number" bindinput="xInput"></input>
-      <text class="unitClass">mm * </text>
-      <input class="inputClass" type="number" bindinput="yInput"></input>
-      <text class="unitClass">mm</text>
-    </view>
-  </view>
-  <button type="primary" bindtap="clicked" class="theButton">点击计算</button>
-  <view wx:if="{{show}}" class="outputView">
-    <text class="introduce">预测结果</text>
-    <view class="downblockView">
-      <text class="textClass">瓷砖块数</text>
-      <text class="textClass">{{blockNum}}</text>
-      <text class="unitClass">块</text>
-    </view>
-    <view class="downblockView">
-      <text class="textClass">瓷砖总价</text>
-      <text class="textClass">{{totalMoney}}</text>
-      <text class="unitClass">元</text>
+    <view class="downView">
+      <text class="answerText2">{{answer[1].text1}}</text>
+      <text class="answerNum2">{{totalPrice}}</text>
+      <text class="answerText2">{{answer[1].text2}}</text>
     </view>
   </view>
 </view>

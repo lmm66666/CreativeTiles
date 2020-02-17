@@ -10,18 +10,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    storage: [],
+    tileData: [],
+    sampleData: [],
     showMask: 0,
-    swiperNum: 1,
-    viewNum: [0],
+    swiperTileNum: 0,
+    viewTileNum: [0],
+    swiperSampleNum: 0,
+    viewSampleNum: [0],
     addImagePath: '',
     addImageName: '',
     addClicked: 1,
-    maskTopLeft: "返回",
-    maskTopRight: "上传",
-    maskTitle: "添加样砖",
-    emptyText1: "暂无数据！",
-    emptyText2: "点击右上方+添加"
+    left: 1,
+    right: 0
   },
 
   /**
@@ -35,13 +35,16 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '我的砖库' 
+    })
    this.refresh()
   },
 
@@ -138,6 +141,13 @@ Page({
     else{
       var that = this
       var path = "storage/" + cloudFormatTime(new Date()) + '.jpeg'
+      // 判断类型
+      if (that.data.left == 0){
+        var type = 'sample'
+      }
+      else{
+        var type = 'tile'
+      }
       wx.showToast({
         title: '上传中',
         icon: "loading",
@@ -151,8 +161,9 @@ Page({
           wx.cloud.callFunction({
             name: "storageAdd",
             data:{
+              type: type,
               picPath: res.fileID,
-              picName: picName 
+              picName: [picName] 
             },
             // 上传成功返回刷新
             success:res => {
@@ -165,7 +176,6 @@ Page({
                 icon: "success",
                 duration: 1500
               })
-              
             },
             //上传失败保持原界面
             fail:res => {
@@ -193,26 +203,71 @@ Page({
     wx.cloud.callFunction({
       name: "getStorage",
       success(res){
-        if(res.result.data.length > 0){
-          that.setData({
-            storage: res.result.data[0]
-          })
-          console.log(that.data.storage)
-          var len = that.data.storage.picName.length
-          that.setData({
-            swiperNum: len/8
-          })
-          var temp = []
-          for(var i = len; i >= 0; i-=8){
-            if(i >= 8){
-              temp.push(8)
+        console.log(res.result.data)
+        if (res.result.data != []){
+          // tileData 赋值
+          if(res.result.data.tileData.length > 0){
+            var data = res.result.data.tileData
+            var len = data.length
+            var swiperNum = len/8
+            var temp = []
+            for(var i = len; i >= 0; i-=8){
+              if(i >= 8){
+                temp.push(8)
+              }
+              else{
+                temp.push(i)
+              }
             }
-            else{
-              temp.push(i)
-            }
+            that.setData({
+              tileData: data,
+              swiperTileNum: swiperNum,
+              viewTileNum: temp
+            })
           }
+          else{
+            that.setData({
+              tileData: [],
+              swiperTileNum: 1,
+              viewTileNum: [0]
+            })
+          }
+          // sampleData赋值
+          if(res.result.data.sampleData.length > 0){
+            var data = res.result.data.sampleData
+            var len = data.length
+            var swiperNum = len/8
+            var temp = []
+            for(var i = len; i >= 0; i-=8){
+              if(i >= 8){
+                temp.push(8)
+              }
+              else{
+                temp.push(i)
+              }
+            }
+            that.setData({
+              sampleData: data,
+              swiperSampleNum: swiperNum,
+              viewSampleNum: temp
+            })
+          }
+          else{
+            that.setData({
+              sampleData: [],
+              swiperSampleNum: 1,
+              viewSampleNum: [0]
+            })
+          }
+        }
+        else{
           that.setData({
-            viewNum: temp
+            tileData: [],
+            swiperTileNum: 1,
+            viewTileNum: [0],
+            sampleData: [],
+            swiperSampleNum: 1,
+            viewSampleNum: [0],
           })
         }
       }
@@ -226,12 +281,73 @@ Page({
   },
 
   picClicked:function(e){
-    var that = this
-    console.log("picClicked: " + e.currentTarget.dataset.src)
-    var currentUrl = e.currentTarget.dataset.src
+    var x = e.currentTarget.dataset.x
+    var y = e.currentTarget.dataset.y
+    if (this.data.left == 1){
+      var currentUrl = this.data.tileData[6*x+y].picPath
+    }
+    else{
+      var currentUrl = this.data.sampleData[6*x+y].picPath
+    }
     wx.previewImage({
       current: currentUrl, // 当前显示图片的http链接
-      urls: that.data.storage.picPath // 需要预览的图片http链接列表
+      urls: [currentUrl] // 需要预览的图片http链接列表
     })
+  },
+   
+  picLongPress:function(e){
+    var that = this
+    var x = e.currentTarget.dataset.x
+    var y = e.currentTarget.dataset.y
+    if (that.data.left == 1){
+      var type = 'tile'
+      var picInfo = that.data.tileData[6*x+y]
+    }
+    else if (that.data.right == 1){
+      var type = 'sample'
+      var picInfo = that.data.sampleData[6*x+y]
+    }
+    wx.showModal({
+      title: "提示",
+      confirmText: '确定',
+      showCancel: true,
+      content: '确认删除此图片？',
+      success: function (res) {
+        if (res.confirm) {
+          wx.cloud.callFunction({
+            name: "storageDel",
+            data:{
+              type: type,
+              picInfo: picInfo
+            },
+            success(res){
+              that.refresh()
+            }
+          })
+        }
+      } 
+    })
+  },
+
+  titleClicked:function (e){
+    var position = e.currentTarget.dataset.name
+    if (position == "left"){
+      if (this.data.left == 0){
+        this.animate('.titleMask', [{translateX: '70px'},{translateX: '0px'}], 200)
+        this.setData({
+          left: 1,
+          right: 0
+        })
+      }
+    }
+    if (position == "right"){
+      if (this.data.right == 0){
+        this.animate('.titleMask', [{translateX: '0px'},{translateX: '70px'}], 200)
+        this.setData({
+          left: 0,
+          right: 1
+        })
+      }
+    }
   }
 })

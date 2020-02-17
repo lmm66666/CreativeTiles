@@ -1,32 +1,68 @@
-<!--pages/storagePage/storagePage.wxml-->
-<view class="titleView">
-  <text class="title">我的砖库</text>
+<!--pages{SampleDataPage{SampleDataPage.wxml-->
+<view class="titleBar">
+  <text class="titleText" bindtap="titleClicked" data-name="left">瓷砖库</text>
+  <text class="titleText" bindtap="titleClicked" data-name="right">样板间</text>
 </view>
+
+<view class="titleMaskView">
+  <view class="titleMask"></view>
+</view>
+
 <image class="addImage" src="/images/addRed.png" bindtap="showMaskClicked" wx:if="{{!showMask}}"></image>
-<swiper class="swiperView" indicator-dots="true" duration="600">
-	<block wx:for="{{swiperNum}}" wx:for-index="i" wx:key="*this">
+
+<swiper class="swiperView" indicator-dots="true" duration="600" wx:if="{{left}}">
+	<block wx:for="{{swiperTileNum}}" wx:for-index="i" wx:key="*this">
 		<swiper-item>
-      <view class="containerView" wx:if="{{viewNum[i] != 0}}">
-        <block wx:for="{{viewNum[i]}}" wx:for-index="j" wx:key="*this">
-          <view class="unitView">
-            <image class="imageClass" src="{{storage.picPath[6*i+j]}}" bindtap="picClicked"></image>
-            <text >{{storage.picName[6*i+j]}}</text>
+      <view class="containerView" wx:if="{{viewTileNum[0] != 0}}">
+        <block wx:for="{{viewTileNum[i]}}" wx:for-index="j" wx:key="*this">
+          <view class="unitView" bindlongpress="picLongPress" data-x="{{i}}" data-y="{{j}}">
+            <image class="imageClass" src="{{tileData[6*i+j].picPath}}" bindtap="picClicked" data-x="{{i}}" data-y="{{j}}"></image>
+            <block wx:for="{{tileData[6*i+j].picName}}" wx:for-item="theText">
+               <text class="picText1" wx:if="{{tileData[6*i+j].picName.length > 1}}">{{theText}}</text>
+               <text class="picText2" wx:else>{{theText}}</text>
+            </block>
           </view>
         </block>
       </view>
       <view class="emptyView" wx:else>
-        <text class="emptyText">{{emptyText1}}</text>
-        <text class="emptyText">{{emptyText2}}</text>
+        <text class="emptyText">暂无数据！</text>
+        <text class="emptyText">点击右上方+添加</text>
+        <text class="emptyText">长按图片可以删除</text>
       </view>
 		</swiper-item>
 	</block>
 </swiper>
+
+<swiper class="swiperView" indicator-dots="true" duration="600" wx:if="{{right}}">
+	<block wx:for="{{swiperSampleNum}}" wx:for-index="i" wx:key="*this">
+		<swiper-item>
+      <view class="containerView" wx:if="{{viewSampleNum[0] != 0}}">
+        <block wx:for="{{viewSampleNum[i]}}" wx:for-index="j" wx:key="*this">
+          <view class="unitView" bindlongpress="picLongPress" data-x="{{i}}" data-y="{{j}}">
+            <image class="imageClass" src="{{sampleData[6*i+j].picPath}}" bindtap="picClicked" data-x="{{i}}" data-y="{{j}}"></image>
+            <block wx:for="{{sampleData[6*i+j].picName}}" wx:for-item="theText">
+               <text class="picText1" wx:if="{{sampleData[6*i+j].picName.length > 1}}">{{theText}}</text>
+               <text class="picText2" wx:else>{{theText}}</text>
+            </block>
+          </view>
+        </block>
+      </view>
+      <view class="emptyView" wx:else>
+        <text class="emptyText">暂无数据！</text>
+        <text class="emptyText">点击右上方+添加</text>
+        <text class="emptyText">长按图片可以删除</text>
+      </view>
+		</swiper-item>
+	</block>
+</swiper>
+
 <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showMask}}">
   <view class="maskTop">
-    <text class="maskTopText" bindtap="hideMaskClicked">{{maskTopLeft}}</text>
-    <text class="maskTopText" bindtap="uploadClicked">{{maskTopRight}}</text>
+    <text class="maskTopText" bindtap="hideMaskClicked">返回</text>
+    <text class="maskTopText" bindtap="uploadClicked">上传</text>
   </view>
-  <text class="maskTitle">{{maskTitle}}</text>
+  <text class="maskTitle" wx:if="{{left}}">添加样砖</text>
+  <text class="maskTitle" wx:else>添加样板间</text>
   <image class="maskImage" src="{{addImagePath}}"></image>
   <input class="maskInput" placeholder="输入名称" bindinput="addImageNameInput"></input>
   <view class="maskHolderLine"></view>

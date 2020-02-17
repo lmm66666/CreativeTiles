@@ -3,26 +3,49 @@ page{
   height: 100%;
 }
 
-.titleView{
+.titleBar{
   height: 8%;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
-.title{
-  font-size: x-large;
-  display: flex;
-  margin-bottom: 20rpx;
+.titleText{
+  font-size: large;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.titleMaskView{
+  height: 70rpx;
+  width: 266rpx;
+  position: absolute;
+  top: 23rpx;
+  left: 243rpx;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.titleMask{
+  height: 60rpx;
+  width: 120rpx;
+  position: absolute;
+  top: 5rpx;
+  left: 5rpx;
+  background-color: white;
+  border-radius: 5px;
+  z-index: -1;
 }
 
 .addImage{
   height: 50rpx;
   width: 50rpx;
   position: absolute;
-  top: 20rpx;
+  top: 30rpx;
   right: 40rpx;
 }
 
@@ -45,16 +68,23 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: whitesmoke;
   border-radius: 15px;
   margin-left: 4%;
   margin-bottom: 14rpx;
 }
 
 .imageClass{
-  height: 80%;
-  width: 100%;
-  border-radius: 15px;
+  height: 70%;
+  width: 90%;
+  border-radius: 8px;
+}
+
+.picText1{
+  font-size: smaller;
+}
+
+.picText2{
+  font-size: medium;
 }
 
 .textClass{

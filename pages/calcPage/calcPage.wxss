@@ -1,91 +1,90 @@
 /* pages/calcPage.wxss */
+
+
 page{
   height: 100%;
 }
 
-.titleView{
-  height: 8%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.title{
-  font-size: x-large;
-}
-
 .all{
-  height: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-}
-
-.inputView{
-  height: 45%;
-  width: 90%;
   background-color: whitesmoke;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
-.outputView{
-  height: 30%;
+.unitView{
+  height: 7%;
   width: 90%;
-  background-color: whitesmoke;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.introduce{
-  margin-left: 30rpx;
-  margin-top: 20rpx;
-  font-size: larger;
-}
-
-.upblockView{
-  height: 25%;
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-}
-
-.downblockView{
-  height: 30%;
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-}
-
-.textClass{
-  margin-left: 30rpx;
-  margin-top: 14rpx;
-  font-size: larger;
-}
-
-.inputClass{
-  height: 65%;
-  width: 12%;
-  margin-left: 10rpx;
-  margin-top: 14rpx;
   background-color: white;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-top: 25rpx;
   border-radius: 5px;
 }
 
-.unitClass{
-  margin-left: 10rpx;
-  margin-top: 14rpx;
-  font-size: larger;
+.leftText{
+  font-size: medium;
+  margin-left: 30rpx;
+  color: gray;
+}
+
+.rightText{
+  font-size: medium;
+  margin-left: 20rpx;
+}
+
+.theInput{
+  width: 20%;
+  margin-left: 35%;
 }
 
 .theButton{
   position: absolute;
-  top: 485rpx;
-  width: 40%;
+  top: 530rpx;
+  width: 90%;
+}
+
+.answerView{
+  height: 12%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 160rpx;
+}
+
+.downView{
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.answerText1{
+  margin-left: 30rpx;
+  font-size: medium;
+  margin-top: 15rpx;
+}
+
+.answerNum1{
+  margin-left: 30rpx;
+  font-size: x-large;
+  color: blue;
+  margin-top: 15rpx;
+}
+
+.answerText2{
+  margin-left: 30rpx;
+  font-size: medium;
+  margin-bottom: 15rpx;
+}
+
+.answerNum2{
+  margin-left: 30rpx;
+  font-size: x-large;
+  color: blue;
+  margin-bottom: 15rpx
 }
