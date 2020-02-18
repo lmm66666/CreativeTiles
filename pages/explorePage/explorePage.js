@@ -6,25 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperPicUrl:[
-      'http://www.monalisa.com.cn/UploadFile/ads/536bcadb-9f8f-4865-8345-9cc02f3de6f8.jpg', 
-      'http://www.monalisa.com.cn//UploadFile/ads/50eb8e33-feb2-4cf6-b134-52d756a1d101.jpg', 
-      'http://www.monalisa.com.cn/UploadFile/ads/f4b5f3a6-9c66-4c26-8c51-633b3b9e119f.jpg', 
-      'https://www.newzhongyuan.com/data/2017/g/www.gdxzytc.kenfor.com//db_file/201907/13/1563012152811114.jpg',
-      'https://www.newzhongyuan.com/data/2017/g/www.gdxzytc.kenfor.com//db_file/201907/13/1563012549154999.jpg'
-    ], 
-    iconData:[{ icon: '/images/explore/button-icon/commend.png', text: '每日推荐'},
-              { icon: '/images/explore/button-icon/teach.png', text: '装修百科'},
-              { icon: '/images/explore/button-icon/money.png', text: '价格估算'},
-              { icon: '/images/explore/button-icon/depository.png', text: '我的砖库'}],
+    dataBase: [],
+    favourite: [],
+    iconData:[{ icon: '/images/button-icon/commend.png', text: '大牌推荐'},
+              { icon: '/images/button-icon/teach.png', text: '装修百科'},
+              { icon: '/images/button-icon/money.png', text: '价格估算'},
+              { icon: '/images/button-icon/notice.png', text: '我的消息'}],
     title: "品牌推荐",
-    viewData: [{ picPath1: "/images/explore/brand-icon/makeboluo.jpg", text1: "行业新高度", id1: "makeboluo",
-                picPath2: "/images/explore/brand-icon/mengnalisha.jpeg", text2: "每个家都值得拥有", id2: "mengnalisha"},
-              { picPath1: "/images/explore/brand-icon/dongpeng.jpeg", text1: "美好生活 用心设计", id1: "dongpeng",
-                picPath2: "/images/explore/brand-icon/guanzhu.jpg", text2: "民族品牌 中华风采", id2: "guanzhu" },
-              { picPath1: "/images/explore/brand-icon/nuobeier.jpeg", text1: "更新技术 更好瓷砖", id1: "nuobeier", 
-                picPath2: "/images/explore/brand-icon/xinzhongyuan.jpg", text2: "有设计感的一线品牌", id2: "xinzhongyuan"}]
-
   },
 
   /**
@@ -45,7 +33,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this
+    wx.cloud.callFunction({
+      name: "getDailyCommend",
+      success(res){
+        console.log(res.result.data)
+        that.setData({
+          dataBase: res.result.data,
+        })
+        that.getHeart()
+      }
+    })
   },
 
   /**
@@ -83,46 +81,6 @@ Page({
 
   },
 
-  toDetails: function (e) {
-    var brand = e.currentTarget.id
-    var app = ""
-    if (brand == "makeboluo"){
-      app = 'wx725c39fe8eb5e9bd'
-      this.toMiniProgram(app)
-    }
-    else if (brand == "mengnalisha"){
-      app = 'wxdfa0c705aefeb61c'
-      this.toMiniProgram(app)
-    }
-    else if (brand == "dongpeng"){
-      app = "wx70128fc6bcffbefc"
-      this.toMiniProgram(app)
-    }
-    else if (brand == "guanzhu"){
-      app = "wx5b6dd5f6d7fd5ef3"
-      this.toMiniProgram(app)
-    }
-    else if (brand == "nuobeier"){
-      app = "wx9afb41c0b9873121"
-      var that = this
-      wx.showModal({
-        title: '提示',
-        confirmText: '确定',
-        showCancel: false,
-        content: '该小程序由地方经销商提供，仅供参考！',
-        success: function (res) {
-          if (res.confirm) {
-            that.toMiniProgram(app)
-          }
-        }       
-      })
-    }
-    else if (brand == "xinzhongyuan"){
-      app = "wxb1e54265cc309c76"
-      this.toMiniProgram(app)
-    }
-  },
-
   iconClickded(e){
     var name = e.target.dataset.name
     console.log(name)
@@ -144,18 +102,18 @@ Page({
         success: (result) => {},
       })
     }
-    else if (name == "我的砖库"){
+    else if (name == "我的消息"){
       wx.navigateTo({
-        url: '/pages/storagePage/storagePage',
+        url: '',
         complete: (res) => {},
         events: {},
         fail: (res) => {},
         success: (result) => {},
       })
     }
-    else if (name == "每日推荐"){
+    else if (name == "大牌推荐"){
       wx.navigateTo({
-        url: '/pages/commendPage/commendPage',
+        url: '/pages/brandPage/brandPage',
         complete: (res) => {},
         events: {},
         fail: (res) => {},
@@ -164,15 +122,64 @@ Page({
     }
   },
 
-  toMiniProgram:function(app){
-    wx.navigateToMiniProgram({
-      appId: app,
-      path: '',
-      extraData: {
+  picClicked:function(e){
+    var currentUrl = e.currentTarget.dataset.name
+    console.log("picClicked: " + currentUrl)
+    wx.previewImage({
+      current: currentUrl, // 当前显示图片的http链接
+      urls: [currentUrl] // 需要预览的图片http链接列表
+    })
+  },
 
+  favourtieClicked:function(e){
+    var that = this
+    var x = e.currentTarget.dataset.x
+    var y = e.currentTarget.dataset.y
+    const picName = [this.data.dataBase[x].brand, this.data.dataBase[x].tileName[y]]
+    const picPath = this.data.dataBase[x].tilePath[y]
+    wx.showLoading({
+      title: '处理中',
+      during: 1500
+    })
+    wx.cloud.callFunction({
+      name: "heartClicked",
+      data:{
+        type: 'tile',
+        picName: picName,
+        picPath: picPath
       },
-      success(res) {
-        // 打开成功
+      success(res){
+        var text = res.result.text
+        wx.showToast({
+          title: text,
+        })
+        that.getHeart()
+      }
+    })
+  },
+
+  getHeart:function(){
+    var that = this
+    wx.cloud.callFunction({
+      name: "getStorage",
+      success(res){
+        var list = []
+        for (var i=0; i<that.data.dataBase.length; i++){
+          var temp = []
+          for (var j=0; j<that.data.dataBase[i].tilePath.length; j++){
+            var find = 0
+            for (var k=0; k<res.result.data.tileData.length; k++){
+              if (that.data.dataBase[i].tilePath[j] == res.result.data.tileData[k].picPath){
+                find = 1
+              }
+            }
+            temp.push(find)
+          }
+          list.push(temp)
+        }
+        that.setData({
+          favourite: list
+        })
       }
     })
   }

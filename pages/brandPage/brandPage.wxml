@@ -1,0 +1,18 @@
+<!--pages/brandPage/brandPage.wxml-->
+<block wx:for="{{viewData}}" wx:key="*this">
+  <view class="doubleView">
+    <view class="theView" bindtap="toDetails" id="{{item.id1}}">
+      <image class="image" src="{{item.picPath1}}" mode="scaleToFill"></image>
+      <view class="theView_textView">
+        <text class="theView_text">{{item.text1}}</text>
+      </view>
+    </view>
+    <view class="theView" bindtap="toDetails" id="{{item.id2}}">
+      <image class="image" src="{{item.picPath2}}" mode="scaleToFill"></image>
+      <view class="theView_textView">
+        <text class="theView_text">{{item.text2}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="blank"></view>
+</block>

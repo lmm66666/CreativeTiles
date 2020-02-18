@@ -2,26 +2,13 @@ page{
   height: 100%;
 }
 
-.theSwiper{
+.all{
   width: 100%;
-  height: 30%;
+  height: 100%;
   display: flex;
-  margin-top: 20rpx;
+  flex-direction: column;
 }
 
-.swiperView{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.swiperImage{
-  width: 95%;
-  height: 100%;
-  border-radius: 15px;
-}
 
 .iconBar{
   height: 12%;
@@ -29,6 +16,7 @@ page{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 40rpx;
 }
 
 .iconView{
@@ -72,50 +60,88 @@ page{
   margin: 10rpx;
 }
 
-.image{
-  height: 180rpx;
-  width: 80%;
-  border-radius: 4px;
-  margin-bottom: 20rpx;
-  margin-top: 20rpx;
+
+
+.swiperView{
+  height: 88%;
+  width: 100%;
 }
 
-.doubleView{
-  height: 300rpx;
+.theContainer{
+  height: 1200rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.nameText{
+  font-size: x-large;
+}
+
+.pic1{
+  height: 40%;
+  width: 92%;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  border-radius: 10px;
+}
+
+.introduce{
+  font-size: medium;
+  align-self: flex-start;
+  margin-left: 20rpx;
+}
+
+.downView{
+  height: 40%;
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  background: whitesmoke;
+  justify-content: center;
 }
 
-.theView{
-  height: 280rpx;
-  width: 48%;
+.unitView{
+  height: 300rpx;
+  width: 30%;
   display: flex;
   flex-direction: column;
-  margin: 15rpx;
-  background: white; 
-  border-radius: 10px;
+  justify-content: flex-start;
   align-items: center;
+  margin: 30rpx;
 }
 
-.theView_textView{
-  border-radius: 5px;
-  background: wheat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.theView_text{
-  font-size: 26rpx;
-  color: orange;
-  margin: 4rpx;
-}
-
-.blank{
-  height: 10rpx;
+.tilePic{
+  height:150rpx;
   width: 100%;
-  background: whitesmoke;
+  border-radius: 3px;
+}
+
+.tileName{
+  font-size: small;
+  margin-top: 20rpx;
+}
+
+.detailText{
+  font-size: 10px;
+  margin-top: 3rpx;
+}
+
+.heart{
+  height: 34rpx;
+  width: 34rpx;
+  margin-top: 10rpx;
+}
+
+.textView{
+  height: 10;
+  width: 100%;
+  color: gray;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80rpx;
+  font-size: small;
 }

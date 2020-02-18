@@ -1,40 +1,45 @@
-<swiper class="theSwiper" indicator-dots="true" interval="3000" duration="600" autoplay="true">
-	<block wx:for="{{swiperPicUrl}}" wx:key="*this">
-		<swiper-item>
-			<view class="swiperView">
-				<image src="{{item}}" class="swiperImage"></image>
-			</view>
-		</swiper-item>
-	</block>
+<swiper class="all" duration="600" vertical="true">
+	<swiper-item>
+		<swiper class="swiperView" indicator-dots="true" duration="600" autoplay="true" interval="3000">
+			<block wx:for="{{dataBase}}" wx:key="*this">
+				<swiper-item>
+				<view class='theContainer'>
+					<text class="nameText">{{item.title}}</text>
+					<image class="pic1" src="{{item.mainPic}}"></image>
+					<text class="introduce">出现的瓷砖</text>
+					<view class="downView">
+						<block wx:for="{{item.tilePath}}" wx:for-index="i" wx:for-item="this" wx:key="*this">
+							<view class="unitView">
+								<image class="tilePic" src="{{this}}" mode="aspectFill" bindtap="picClicked" data-name="{{this}}"></image>
+								<text class="tileName">{{item.brand}}</text>
+								<text class="detailText">{{item.tileName[i]}}</text>
+								<image class="heart" wx:if="{{favourite[index][i]}}" src="/images/redHeart.png" bindtap="favourtieClicked" data-x="{{index}}" data-y="{{i}}"></image>
+								<image class="heart" wx:else src="/images/heart.png" bindtap="favourtieClicked" data-x="{{index}}" data-y="{{i}}"></image>
+							</view>
+						</block>
+					</view>
+				</view>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="textView">
+			<text>上滑探索更多</text>
+		</view>
+	</swiper-item>
+	
+	<swiper-item>
+		<view class='iconBar'>
+			<block wx:for="{{iconData}}" wx:key="*this">
+				<view class="iconView">
+					<image src="{{item.icon}}" class="icon" mode="scaleToFill" data-name="{{item.text}}" bindtap="iconClickded"></image>
+					<text class='iconText'>{{item.text}}</text>
+				</view>
+			</block>
+		</view>
+		<text>以下是各式瓷砖</text>
+	</swiper-item>
 </swiper>
-<view class='iconBar'>
-	<block wx:for="{{iconData}}" wx:key="*this">
-		<view class="iconView">
-			<image src="{{item.icon}}" class="icon" mode="scaleToFill" data-name="{{item.text}}" bindtap="iconClickded"></image>
-			<text class='iconText'>{{item.text}}</text>
-		</view>
-	</block>
-</view>
-<view class="titleView">
-	<image src="/images/titleImg.png" class="titleImg" mode="scaleToFill"></image>
-	<text class="title">{{title}}</text>
-</view>
-<view>
-	<block wx:for="{{viewData}}" wx:key="*this">
-		<view class="doubleView">
-			<view class="theView" bindtap="toDetails" id="{{item.id1}}">
-				<image class="image" src="{{item.picPath1}}" mode="scaleToFill"></image>
-				<view class="theView_textView">
-					<text class="theView_text">{{item.text1}}</text>
-				</view>
-			</view>
-			<view class="theView" bindtap="toDetails" id="{{item.id2}}">
-				<image class="image" src="{{item.picPath2}}" mode="scaleToFill"></image>
-				<view class="theView_textView">
-					<text class="theView_text">{{item.text2}}</text>
-				</view>
-			</view>
-		</view>
-		<view class="blank"></view>
-	</block>
-</view>
+
+
+
+

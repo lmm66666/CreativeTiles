@@ -28,9 +28,6 @@ Page({
    */
   onShow: function () {
     var that = this
-    wx.setNavigationBarTitle({
-      title: '每日推荐' 
-    })
     wx.cloud.callFunction({
       name: "getDailyCommend",
       success(res){

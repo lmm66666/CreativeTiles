@@ -204,7 +204,7 @@ Page({
       name: "getStorage",
       success(res){
         console.log(res.result.data)
-        if (res.result.data != []){
+        if (res.result.data.length != 0){
           // tileData 赋值
           if(res.result.data.tileData.length > 0){
             var data = res.result.data.tileData

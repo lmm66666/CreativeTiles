@@ -1,0 +1,52 @@
+/* pages/brandPage/brandPage.wxss */
+page{
+  height: 100%;
+}
+
+.doubleView{
+  height: 300rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: whitesmoke;
+}
+
+.theView{
+  height: 280rpx;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  margin: 15rpx;
+  background: white; 
+  border-radius: 10px;
+  align-items: center;
+}
+
+.theView_textView{
+  border-radius: 5px;
+  background: wheat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theView_text{
+  font-size: 26rpx;
+  color: orange;
+  margin: 4rpx;
+}
+
+.blank{
+  height: 10rpx;
+  width: 100%;
+  background: whitesmoke;
+}
+
+.image{
+  height: 180rpx;
+  width: 80%;
+  border-radius: 4px;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}

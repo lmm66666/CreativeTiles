@@ -2,13 +2,13 @@
   "pages": [
     "pages/explorePage/explorePage",
     "pages/analysisPage/analysisPage",
-    "pages/myselfPage/myselfPage",
     "pages/DIYPage/DIYPage",
     "pages/addPage/addPage",
     "pages/calcPage/calcPage",
     "pages/teachPage/teachPage",
     "pages/storagePage/storagePage",
-    "pages/commendPage/commendPage"
+    "pages/commendPage/commendPage",
+    "pages/brandPage/brandPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,10 +41,10 @@
         "selectedIconPath": "images/DIY.png"
       },
       {
-        "pagePath": "pages/myselfPage/myselfPage",
-        "text": "我",
-        "iconPath": "images/myself.png",
-        "selectedIconPath": "images/myself.png"
+        "pagePath": "pages/storagePage/storagePage",
+        "text": "收藏",
+        "iconPath": "images/favourite.png",
+        "selectedIconPath": "images/favourite.png"
       }
     ]
   },

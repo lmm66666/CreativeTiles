@@ -19,7 +19,7 @@
         <text class="theTime">{{item.time}}</text>
         <view class="iconView">
           <image src="/images/comment.png" class="icon"></image>
-          <image src="/images/explore/button-icon/commend.png" class="icon"></image>
+          <image src="/images/button-icon/commend.png" class="icon"></image>
         </view>
       </view>
       <view class="commentView">
