@@ -80,7 +80,7 @@ page{
 }
 
 .picText1{
-  font-size: smaller;
+  font-size: 10px;
 }
 
 .picText2{

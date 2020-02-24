@@ -5,14 +5,15 @@
     "pages/DIYPage/DIYPage",
     "pages/addPage/addPage",
     "pages/calcPage/calcPage",
-    "pages/teachPage/teachPage",
     "pages/storagePage/storagePage",
     "pages/commendPage/commendPage",
-    "pages/brandPage/brandPage"
+    "pages/brandPage/brandPage",
+    "pages/detailPage/detailPage",
+    "pages/searchPage/searchPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F5F5F5",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "瓷砖创意工坊",
     "navigationBarTextStyle": "black"
   },

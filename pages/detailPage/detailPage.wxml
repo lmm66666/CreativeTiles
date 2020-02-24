@@ -1,19 +1,12 @@
-<swiper class="theSwiper" duration="600" autoplay="true" indicator-dots="true">
-	<block wx:for="{{swiperItem}}" wx:key='title'>
-		<swiper-item>
-			<view class="swiperTextView" style="background:url('{{item.src}}'); background-size:100% 100%;" bindtap="swiperClicked" data-name="{{item.title}}">
-				<text class="swiperTitle" bindtap="swiperClicked" data-name="{{item.title}}">{{item.title}}</text>
-				<text class="swiperText" bindtap="swiperClicked" data-name="{{item.title}}">{{item.text}}</text>
-			</view>
-		</swiper-item>
-	</block>
-</swiper>
-
-<view class="midView">
-	<text class="midLeftText">精选瓷砖</text>
-	<text class="midRightText" bindtap="moreClicked">更多>></text>
+<view class="xLine"></view>
+<view class="textView">
+	<view class="leftTextView">
+		<text class="leftText">{{searchDetail}}</text>
+	</view>
+	<view class="yLine"></view>
+	<text class="rightText" bindtap="toSearchPage">筛选</text>
 </view>
-
+<view class="xLine"></view>
 <scroll-view class="theScoller" scroll-y="true" bindscrolltolower="loadMore">
 	<view class="theScollerView">
 		<block wx:for="{{dataBase}}" wx:key='picPath'>
