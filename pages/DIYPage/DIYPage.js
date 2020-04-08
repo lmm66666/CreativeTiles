@@ -4,19 +4,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    button1Text: "上传图片",
-    button2Text: "我的砖库",
-    picPath: "/images/biscuit.png",
-    width: 85,
-    rotate: [{num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, 
-             {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}, {num: 0,}]
+    type: '',
+    picPath: '',
+    method: '',
+    methodText: '',
+    width: 100,
+    rotate: [
+      {num: 1,}, {num: 2,}, {num: 1,}, {num: 2,}, {num: 0,}, {num: 3,}, {num: 0,}, {num: 3,}, 
+      {num: 1,}, {num: 2,}, {num: 1,}, {num: 2,}, {num: 0,}, {num: 3,}, {num: 0,}, {num: 3,}
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initialCanvas()
+    this.data.type = options.type
+    this.data.method = options.method
+    this.data.picPath= JSON.parse(options.picPath)
+    var systemInfo = wx.getSystemInfoSync();
+    var px = 100 / 750 * systemInfo.windowWidth; 
+    this.data.width = px;
   },
 
   /**
@@ -30,6 +38,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.initialData()
+    this.initialCanvas()
+    console.log(this.data.width)
   },
 
   /**
@@ -42,6 +53,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+
   },
 
   /**
@@ -58,128 +70,147 @@ Page({
     
   },
 
-
-  btnClicked: function(options){
-    var that = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths[0]
-        var picPath = that.data.picPath;
-        that.setData({
-          picPath:tempFilePaths
-        })
-        that.initialCanvas()
-      }
-    })
-  },
-
   initialCanvas: function(){
-    var ctx = wx.createCanvasContext()
-    var text = "picCanvas"
-    var canvasID = ""
-    for (var i = 1; i < 17; i++) {
-      text = "picCanvas"
-      canvasID = text + String(i)
-      ctx = wx.createCanvasContext(canvasID, this)
-      ctx.drawImage(this.data.picPath, 0, 0, this.data.width, this.data.width)
-      ctx.draw()
+    for (var i = 0; i < 16; i++) {
+      this.drawCanvas(i)
     }
   },
 
-  picClicked: function(e){
-    var n = Number(e.currentTarget.dataset.name)
-    var canvasID = 'picCanvas' + String(n)
-    var num = this.getNum(n)
-    console.log('图片序号：' + n + ' 点击次数：' + (num+1) + ' 图片路径' + this.data.picPath)
+  drawCanvas:function (i){
+    var canvasID = 'picCanvas' + String(i+1)
     var ctx = wx.createCanvasContext(canvasID, this)
-    if (num % 4 == 0){
+    var num = this.data.rotate[i].num
+    if (num % 4 == 1){
       ctx.translate(this.data.width, 0)
     }
-    else if (num % 4 == 1) {
+    else if (num % 4 == 2) {
       ctx.translate(this.data.width, this.data.width)
     }
-    else if (num % 4 == 2) {
+    else if (num % 4 == 3) {
       ctx.translate(0, this.data.width)
     }
-    else if (num % 4 == 3) {
+    else if (num % 4 == 0) {
       ctx.translate(0, 0)
     }
-    ctx.rotate((num+1) * Math.PI / 2)
+    ctx.rotate((num) * Math.PI / 2)
     ctx.drawImage(this.data.picPath, 0, 0, this.data.width, this.data.width)
     ctx.draw()
   },
 
-  getNum: function(n){
-    let num = 0
-    if (n == 1){
-      num = this.data.rotate[0].num
-      this.setData({ 'rotate[0].num': num + 1 })
+  picClicked: function(e){
+    var n = Number(e.currentTarget.dataset.name)
+    if (n == 1|| n ==3|| n==9|| n==11){
+      this.setData({
+        'rotate[0].num': this.data.rotate[0].num + 1,
+        'rotate[2].num': this.data.rotate[2].num + 1,
+        'rotate[8].num': this.data.rotate[8].num + 1,
+        'rotate[10].num': this.data.rotate[10].num + 1,
+      })
+      var list = [0, 2, 8, 10]
+      for (var i = 0; i < 4; i++){
+        this.drawCanvas(list[i])
+      }
     }
-    else if (n == 2) {
-      num = this.data.rotate[1].num
-      this.setData({ 'rotate[1].num': num + 1 })
+    else if (n == 2|| n ==4|| n==10|| n==12){
+      this.setData({
+        'rotate[1].num': this.data.rotate[1].num + 1,
+        'rotate[3].num': this.data.rotate[3].num + 1,
+        'rotate[9].num': this.data.rotate[9].num + 1,
+        'rotate[11].num': this.data.rotate[11].num + 1,
+      })
+      var list = [1, 3, 9, 11]
+      for (var i = 0; i < 4; i++){
+        this.drawCanvas(list[i])
+      }
     }
-    else if (n == 3) {
-      num = this.data.rotate[2].num
-      this.setData({ 'rotate[2].num': num + 1 })
+    else if (n == 5 || n ==7|| n==13|| n==15){
+      this.setData({
+        'rotate[4].num': this.data.rotate[4].num + 1,
+        'rotate[6].num': this.data.rotate[6].num + 1,
+        'rotate[12].num': this.data.rotate[12].num + 1,
+        'rotate[14].num': this.data.rotate[14].num + 1,
+      })
+      var list = [4, 6, 12, 14]
+      for (var i = 0; i < 4; i++){
+        this.drawCanvas(list[i])
+      }
     }
-    else if (n == 4) {
-      num = this.data.rotate[3].num
-      this.setData({ 'rotate[3].num': num + 1 })
-    }
-    else if (n == 5) {
-      num = this.data.rotate[4].num
-      this.setData({ 'rotate[4].num': num + 1 })
-    }
-    else if (n == 6) {
-      num = this.data.rotate[5].num
-      this.setData({ 'rotate[5].num': num + 1 })
+    else if (n == 6 || n ==8 || n==14 || n==16){
+      this.setData({
+        'rotate[5].num': this.data.rotate[5].num + 1,
+        'rotate[7].num': this.data.rotate[7].num + 1,
+        'rotate[13].num': this.data.rotate[13].num + 1,
+        'rotate[15].num': this.data.rotate[15].num + 1,
+      })
+      var list = [5, 7, 13, 15]
+      for (var i = 0; i < 4; i++){
+        this.drawCanvas(list[i])
+      }
     } 
-    else if (n == 7) {
-      num = this.data.rotate[6].num
-      this.setData({ 'rotate[6].num': num + 1 })
+    
+  },
+
+  initialData:function () {
+    if (this.data.type == 'img'){
+      var type = 1
     }
-    else if (n == 8) {
-      num = this.data.rotate[7].num
-      this.setData({ 'rotate[7].num': num + 1 })
+    else if (this.data.type == 'canvas'){
+      var type = 0
     }
-    else if (n == 9) {
-      num = this.data.rotate[8].num
-      this.setData({ 'rotate[8].num': num + 1 })
+
+    if (this.data.method == 'fangxing'){
+      var methodText = '方形'
     }
-    else if (n == 10) {
-      num = this.data.rotate[9].num
-      this.setData({ 'rotate[9].num': num + 1 })
+    else if (this.data.method == 'lingxing'){
+      var methodText = '菱形'
     }
-    else if (n == 11) {
-      num = this.data.rotate[10].num
-      this.setData({ 'rotate[10].num': num + 1 })
+    else if (this.data.method == 'zhuanxing'){
+      var methodText = '砖形'
     }
-    else if (n == 12) {
-      num = this.data.rotate[11].num
-      this.setData({ 'rotate[11].num': num + 1 })
+    else if (this.data.method == 'bianlanxing'){
+      var methodText = '编篮形'
     }
-    else if (n == 13) {
-      num = this.data.rotate[12].num
-      this.setData({ 'rotate[12].num': num + 1 })
+    else if (this.data.method == 'fengchexing'){
+      var methodText = '风车形'
     }
-    else if (n == 14) {
-      num = this.data.rotate[13].num
-      this.setData({ 'rotate[13].num': num + 1 })
+
+    this.setData({
+      type: type,
+      methodText: methodText,
+      picPath: this.data.picPath
+    })
+  },
+
+  againClicked:function (){
+    wx.redirectTo({
+      url: '/pages/DIY_UploadPage/DIY_UploadPage',
+    })
+  },
+
+  saveToAlbum:function (){
+    if (this.data.method == 'fangxing'){
+      wx.showToast({
+        title: '该模板暂不支持',
+        icon: 'none'
+      })
     }
-    else if (n == 15) {
-      num = this.data.rotate[14].num
-      this.setData({ 'rotate[14].num': num + 1 })
+    else{
+      wx.saveImageToPhotosAlbum({
+        filePath: this.data.picPath,
+        success(res){
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success'
+          })
+        },
+        fail(res){
+          wx.showToast({
+            title: '保存失败',
+            icon: 'none'
+          })
+        } 
+      })
     }
-    else if (n == 16) {
-      num = this.data.rotate[15].num
-      this.setData({ 'rotate[15].num': num + 1 })
-    }
-    return num
   }
 
 })

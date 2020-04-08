@@ -331,9 +331,11 @@ Page({
 
   titleClicked:function (e){
     var position = e.currentTarget.dataset.name
+    var systemInfo = wx.getSystemInfoSync();
+    var px = 137 / 750 * systemInfo.windowWidth; 
     if (position == "left"){
       if (this.data.left == 0){
-        this.animate('.titleMask', [{translateX: '70px'},{translateX: '0px'}], 200)
+        this.animate('.titleMask', [{translateX: px},{translateX: '0px'}], 200)
         this.setData({
           left: 1,
           right: 0
@@ -342,7 +344,7 @@ Page({
     }
     if (position == "right"){
       if (this.data.right == 0){
-        this.animate('.titleMask', [{translateX: '0px'},{translateX: '70px'}], 200)
+        this.animate('.titleMask', [{translateX: '0px'},{translateX: px}], 200)
         this.setData({
           left: 0,
           right: 1

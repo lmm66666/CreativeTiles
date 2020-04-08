@@ -18,13 +18,10 @@
       <view class="funcView">
         <text class="theTime">{{item.time}}</text>
         <view class="iconView">
-          <image src="/images/comment.png" class="icon"></image>
-          <image src="/images/button-icon/commend.png" class="icon"></image>
+          <text class='xNum'>{{item.num}}</text>
+          <text class='x'>x</text>
+          <image src="/images/commend.png" class="icon" bindtap="favouriteClicked" data-name="{{item._id}}"></image>
         </view>
-      </view>
-      <view class="commentView">
-        <text class="commentName"></text>
-        <text class="theComment"></text>
       </view>
     </view>
   </view>

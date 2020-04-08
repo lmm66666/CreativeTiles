@@ -83,7 +83,7 @@
 .icon{
   width: 40rpx;
   height: 40rpx;
-  margin-right: 20rpx;
+  margin-right: 10rpx;
 }
 
 .theTime{
@@ -100,4 +100,13 @@
   position:fixed;
   right: 50rpx;
   bottom: 100rpx;
+}
+
+.x{
+  font-size: medium;
+}
+
+.xNum{
+  font-size: large;
+  margin-left: 10rpx;
 }

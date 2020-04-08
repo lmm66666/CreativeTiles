@@ -7,7 +7,7 @@ Page({
   data: {
     detail: [
       {text1: "房间面积", text2: "平方米", text3: "100"}, 
-      {text1: "瓷砖单价", text2: "元", text3: "50"}, 
+      {text1: "瓷砖单价", text2: "元", text3: "100"}, 
       {text1: "瓷砖高度", text2: "毫米", text3: "900"}, 
       {text1: "瓷砖宽度", text2: "毫米", text3: "1800"}
     ],
@@ -15,7 +15,7 @@ Page({
     answer: [{text1: "预计需要砖块", text2: "块"}, {text1: "预计总价格为", text2: "元"}],
     show: 0,
     area: 100,
-    unitPrice: 50,
+    unitPrice: 100,
     height: 900,
     width: 1800,
     tileNum: 0,

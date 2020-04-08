@@ -11,10 +11,7 @@ Page({
     swiperItem:[
       {title: "每日推荐", text: "精选TOP5", src: 'http://att.marco.wowdg.com/uploads/20200102/e7345dfbd9ca33d9faf2ee0c60e63ea5.jpg'},
       {title: "大牌直达", text: "国内顶尖品牌", src: 'http://att.marco.wowdg.com/uploads/20191119/lsFvBQjRPLosx2qeNkr21EdYMi-q.jpg'},
-      {title: "罗马新时代系列", text: "自然天成，大而不同", src: 'http://www.monalisa.com.cn/UploadFile/trees/bd152eb4-eb7f-4159-a801-478d737abf44.jpg'},
-      {title: "蒙娜丽莎薄砖", text: "创享环保新生活", src: 'http://www.monalisa.com.cn/UploadFile/zy/fddb55fa-ce9f-4d8f-b42d-a096303a9e9b.jpg'},
-      {title: "七星珍石系列", text: "因不凡而自有锋芒", src: 'http://www.monalisa.com.cn/UploadFile/trees/eaf5f82a-4c3c-4c46-a0cd-304f0f432255.jpg'},
-      {title: "E-STONE+系列", text: "六大提升，行业顶尖", src: 'http://att.marco.wowdg.com/media/images/products/2017/02/%E6%B8%85%E6%B0%B4%E6%B3%A5%E7%BA%A2%E8%89%B2%E8%83%8C%E6%99%AF7-7.jpg'},
+      {title: "价格估算", text: "一键估算价格", src: 'http://www.monalisa.com.cn/UploadFile/trees/bd152eb4-eb7f-4159-a801-478d737abf44.jpg'},
     ],
     page: 1
   },
@@ -24,7 +21,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name: 'getUserInfo',
+      success(res){
+        app.globalData.userInfo.openid = res.result.openid
+      }
+    })
   },
 
   /**
@@ -38,7 +40,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+ 
   },
 
   /**

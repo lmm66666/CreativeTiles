@@ -1,0 +1,104 @@
+<!--pages/DIY_UploadPage/DIY_UploadPage.wxml-->
+<view wx:if="{{step == 0}}" class="page">
+  <view class="firstTextView">
+    <text class='title'>欢迎来到探索</text>
+    <text class='theText1'>在这里你可以：</text>
+    <text class='theText2'>· 拼搭属于你的瓷砖</text>
+    <text class='theText2'>· 免费使用多种模板</text>
+    <text class='theText2'>· 保存分享你的成果</text>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="startClicked">开始</button>
+  </view>
+</view>
+
+<view wx:if="{{step == 1}}" class='page'>
+  <view class="page__hd">
+    <view class="page__title">第一步</view>
+    <view class="page__desc">选择铺设样式</view>
+  </view>
+  <view class='page__bd'>
+     <swiper class='theSwiper' current="0" bindchange='swiperChanged' indicator-dots="true">
+      <swiper-item wx:for="{{methodImgList}}" class="swiperView" wx:key="*this">
+        <text class='methodImgText'>{{item.name}}</text>
+        <image class='methodImg' src="{{item.picPath}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="nextClicked">下一步</button>
+  </view>
+</view>
+
+
+<view wx:if="{{step == 2}}" class='page'>
+  <image class="returnImg" src="/images/return.png" bindtap="refresh"></image>
+  <view class="page__hd">
+    <view class="page__title">第二步</view>
+    <view class="page__desc">选择上传图片</view>
+  </view>
+  <view class='page__bd'>
+    <view class='weui-cells'>
+      <block wx:for="{{uploadDetail[swiperIndex].picDesc}}"  wx:key="*this">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__head">
+                <view class="weui_uploader__title">{{item}}</view>
+                <view class="weui-uploader__tips">{{uploadDetail[swiperIndex].detail}}</view>
+              </view>
+              <view class='weui-uploader__bd' >
+                <view class='weui-uploader__files'>
+                  <view wx:if="{{picSelected[index] == 1}}" class="weui-uploader__file" bindtap="previewImage">
+                    <image class="weui-uploader__img" src="{{uploadPicPath[index]}}" mode="aspectFill" />
+                  </view>
+                  <view wx:else class="weui-uploader__input-box">
+                    <view class="weui-uploader__input" bindtap="chooseImage" data-num="{{index}}"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="uploadClicked">上传</button>
+  </view>
+</view>
+
+<view wx:if="{{step == 3}}" class='page'>
+  <view class="page__hd">
+    <view class="page__title">查看结果</view>
+    <view class="page__desc">{{methodText}}</view>
+  </view>
+  <view class='page__bd'>
+    <image wx:if="{{type}}" src="{{finalPicPath}}" class='resImg'></image>
+    <view wx:if="{{!type}}" class="canvasView">
+      <canvas class="myCanvas" canvas-id="picCanvas1" bindtap="picClicked" data-name="1"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas2" bindtap="picClicked" data-name="2"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas3" bindtap="picClicked" data-name="3"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas4" bindtap="picClicked" data-name="4"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas5" bindtap="picClicked" data-name="5"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas6" bindtap="picClicked" data-name="6"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas7" bindtap="picClicked" data-name="7"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas8" bindtap="picClicked" data-name="8"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas9" bindtap="picClicked" data-name="9"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas10" bindtap="picClicked" data-name="10"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas11" bindtap="picClicked" data-name="11"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas12" bindtap="picClicked" data-name="12"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas13" bindtap="picClicked" data-name="13"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas14" bindtap="picClicked" data-name="14"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas15" bindtap="picClicked" data-name="15"></canvas>
+      <canvas class="myCanvas" canvas-id="picCanvas16" bindtap="picClicked" data-name="16"></canvas>
+      <view class="viewBlank">
+        <text class='intr'>点击图片可以旋转</text>
+      </view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="saveToAlbum">保存到相册</button>
+    <button class="weui-btn" type="primary" bindtap="againClicked">再来一次</button>
+  </view>
+</view>

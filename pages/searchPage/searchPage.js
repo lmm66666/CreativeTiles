@@ -9,7 +9,7 @@ Page({
     formInfo: [
       {type: '品牌', index: 0, detail: ["全部", "马可波罗", "蒙娜丽莎"]},
       {type: '颜色', index: 0, detail: ['全部', '灰色', '棕色', '杏色', '黑色', '白色', '褐色', '黄色']},
-      {type: '类别', index: 0, detail: ['全部']},
+      {type: '类别', index: 0, detail: ['全部 (若要更改请先选择品牌)']},
       {type: '宽度', index: 0, detail: ['全部', '4800', '3600', '2400', '1800', '1200', '900', '800', '600', '300']},
       {type: '高度', index: 0, detail: ['全部', '3600', '2400', '1600', '1200', '900', '800', '600', '400', '300', '200']}
     ]
@@ -100,7 +100,7 @@ Page({
         var index = 'formInfo['+num+'].index'
         this.setData({
           [index]: e.detail.value,
-          'formInfo[2].detail': ['全部'],
+          'formInfo[2].detail': ['全部 (若要更改请先选择品牌)'],
           'formInfo[2].index': 0
         })
       }
@@ -121,7 +121,12 @@ Page({
       temp = temp + color + '/'
     }
     if (type != '全部'){
-      temp = temp + type + '/'
+      if (type != '全部 (若要更改请先选择品牌)'){
+        temp = temp + type + '/'
+      }
+      else{
+        type = '全部'
+      }
     }
     if (width != '全部'){
       temp = temp + '宽' + width + '/'

@@ -17,7 +17,7 @@
         <block wx:for="{{viewTileNum[i]}}" wx:for-index="j" wx:key="*this">
           <view class="unitView" bindlongpress="picLongPress" data-x="{{i}}" data-y="{{j}}">
             <image class="imageClass" src="{{tileData[6*i+j].picPath}}" bindtap="picClicked" data-x="{{i}}" data-y="{{j}}"></image>
-            <block wx:for="{{tileData[6*i+j].picName}}" wx:for-item="theText" wx:for-index="k">
+            <block wx:for="{{tileData[6*i+j].picName}}" wx:for-item="theText" wx:for-index="k" wx:key="*this">
                <text class="picText1" wx:if="{{k == 1}}">{{theText}}</text>
                <text class="picText2" wx:else>{{theText}}</text>
             </block>

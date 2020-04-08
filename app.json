@@ -9,7 +9,8 @@
     "pages/commendPage/commendPage",
     "pages/brandPage/brandPage",
     "pages/detailPage/detailPage",
-    "pages/searchPage/searchPage"
+    "pages/searchPage/searchPage",
+    "pages/DIY_UploadPage/DIY_UploadPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,7 +26,7 @@
     "list": [
       {
         "pagePath": "pages/explorePage/explorePage",
-        "text": "探索",
+        "text": "首页",
         "iconPath": "images/explore.png",
         "selectedIconPath": "images/explore.png"
       },
@@ -36,8 +37,8 @@
         "selectedIconPath": "images/analysis.png"
       },
       {
-        "pagePath": "pages/DIYPage/DIYPage",
-        "text": "diy",
+        "pagePath": "pages/DIY_UploadPage/DIY_UploadPage",
+        "text": "探索",
         "iconPath": "images/DIY.png",
         "selectedIconPath": "images/DIY.png"
       },

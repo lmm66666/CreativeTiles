@@ -17,7 +17,6 @@ Page({
     userInfo: [],
     tempText: "?",
     theProtraitPath: "?",
-    YorN: 0,
     temp: "?"
   },
 
@@ -86,9 +85,6 @@ Page({
       icon: "loading",
       duration: 5000
     })
-    console.log("confirmToRelease!!!")
-    console.log(cloudFormatTime(new Date()))
-    console.log(this.data.userInfo.avatarUrl)
     // 先把用户头像下载到本地
     var that = this;
     wx.getImageInfo({
@@ -141,39 +137,39 @@ Page({
     var that = this
     var theUrl = that.data.picPath
     var theFileID = []
+    var successNum = 0
     console.log("uploadPic!!!")
     console.log("protrait: " + this.data.theProtraitPath)
     console.log("theUrl.length: " + theUrl.length)
-    that.setData({
-      YorN: 0
-    })
-    for (var i = 0; i < theUrl.length; i++) {
-      console.log("theUrl[" + i + "]:" + theUrl[i])
-      wx.cloud.uploadFile({
-        cloudPath: "pic/" + cloudFormatTime(new Date()) + i + ".png",
-        filePath: theUrl[i],
-        success: res => {
-          that.setData({
-            temp: res.fileID
-          })
-          theFileID.push(that.data.temp)
-          that.setData({
-            YorN: that.data.YorN + 1
-          })
-          console.log("temp: " + that.data.temp)
-          console.log("YorN: " + that.data.YorN)
-          if (that.data.YorN == theUrl.length){
-            that.uploadOthers(theFileID)
+    if (!theUrl.length){
+      that.uploadOthers(theFileID)
+    }
+    else{
+      for (var i = 0; i < theUrl.length; i++) {
+        console.log("theUrl[" + i + "]:" + theUrl[i])
+        wx.cloud.uploadFile({
+          cloudPath: "pic/" + cloudFormatTime(new Date()) + i + ".png",
+          filePath: theUrl[i],
+          success: res => {
+            that.setData({
+              temp: res.fileID
+            })
+            theFileID.push(that.data.temp)
+            successNum += 1
+            console.log("temp: " + that.data.temp)
+            if (successNum == theUrl.length){
+              that.uploadOthers(theFileID)
+            }
+          },
+          fail: res => {
+            wx.showToast({
+              title: '发布失败！(3)',
+              icon: "loading",
+              duration: 1500
+            })
           }
-        },
-        fail: res => {
-          wx.showToast({
-            title: '发布失败！(3)',
-            icon: "loading",
-            duration: 1500
-          })
-        }
-      })
+        })
+      }
     }
   },
 
@@ -188,7 +184,8 @@ Page({
         text: that.data.tempText,
         time: formatTime(new Date()),
         picPath: theFileID,
-        protraitPath: that.data.theProtraitPath
+        protraitPath: that.data.theProtraitPath,
+        num: 0
       },
       success(res) {
         wx.showToast({

@@ -5,16 +5,16 @@ cloud.init({
   env: "tile-server-l2751",
 })
 const db = cloud.database();
+const _ = db.command
 
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const id = event.id
-  const temp = event.degree
+  const _id = event._id
 
-  await db.collection('handbook').doc(id).update({
+  await db.collection('friendCircle').doc(_id).update({
     data: {
-      degree: temp + 1
+      num: _.inc(1)
     }
   })
 }

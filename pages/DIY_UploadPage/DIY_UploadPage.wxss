@@ -1,0 +1,90 @@
+.firstTextView{
+  height: 1050rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  margin-top: 50rpx;
+  font-size: x-large;
+  align-self: center;
+}
+
+.theText1{
+  margin-left: 50rpx;
+  margin-top: 40rpx;
+  font-size: large;
+}
+
+.theText2{
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+  font-size: large;
+}
+
+.theSwiper{
+  height: 700rpx;
+  width: 100%;
+}
+
+.swiperView{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.methodImg{
+  height: 82%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.methodImgText{
+  font-size: medium;
+  margin-top: 30rpx;
+}
+
+.returnImg{
+  height: 40rpx;
+  width: 40rpx;
+  position: absolute;
+  left: 60rpx;
+}
+
+
+
+.canvasView{
+  height: 680rpx;
+  width: 680rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 35rpx;
+}
+
+.viewBlank{
+  height: 20rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myCanvas{
+  width: 170rpx;
+  height : 170rpx;
+}
+
+.intr{
+  font-size: x-small;
+  color: gray;
+  margin-top: 10rpx;
+}
+
+.resImg{
+  height: 680rpx;
+  width: 680rpx;
+  display: flex;
+  margin-left: 35rpx;
+}

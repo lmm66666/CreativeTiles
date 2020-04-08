@@ -112,5 +112,32 @@ Page({
       current: currentUrl, // 当前显示图片的http链接
       urls: [currentUrl]
     })
+  },
+
+  favouriteClicked(e){
+    var that = this
+    var _id = e.currentTarget.dataset.name
+    wx.cloud.callFunction({
+      name: "addDegree",
+      data: {
+        _id: _id
+      },
+      success: res => {
+        DB.get({
+          success(res){
+            that.setData({
+              Datalist: res.data
+            })
+          },
+          fail(res){
+            wx.showToast({
+              title: '网络错误',
+              icon: "loading",
+              duration: 1500
+            })
+          }
+        })
+      }
+    })
   }
 })
