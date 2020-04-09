@@ -95,16 +95,6 @@ Page({
 
   },
 
-  gotoAddPage(){
-    wx.navigateTo({
-      url: '/pages/addPage/addPage',
-      complete: (res) => {},
-      events: {},
-      fail: (res) => {},
-      success: (result) => {},
-    })
-  },
-
   picClicked:function(e){
     console.log("picClicked: " + e.currentTarget.dataset.name)
     var currentUrl = e.currentTarget.dataset.name

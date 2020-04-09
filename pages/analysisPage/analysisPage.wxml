@@ -26,4 +26,4 @@
     </view>
   </view>
 </block>
-<image src="/images/add.png" class="addIcon" bindtap="gotoAddPage"></image>
+<!-- <image src="/images/add.png" class="addIcon" bindtap="gotoAddPage"></image> -->

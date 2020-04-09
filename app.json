@@ -2,8 +2,6 @@
   "pages": [
     "pages/explorePage/explorePage",
     "pages/analysisPage/analysisPage",
-    "pages/DIYPage/DIYPage",
-    "pages/addPage/addPage",
     "pages/calcPage/calcPage",
     "pages/storagePage/storagePage",
     "pages/commendPage/commendPage",

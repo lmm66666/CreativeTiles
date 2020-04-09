@@ -8,7 +8,7 @@
   <view class="titleMask"></view>
 </view>
 
-<image class="addImage" src="/images/addRed.png" bindtap="showMaskClicked" wx:if="{{!showMask}}"></image>
+<!-- <image class="addImage" src="/images/addRed.png" bindtap="showMaskClicked" wx:if="{{!showMask}}"></image> -->
 
 <swiper class="swiperView" indicator-dots="true" duration="600" wx:if="{{left}}">
 	<block wx:for="{{swiperTileNum}}" wx:for-index="i" wx:key="*this">
@@ -26,7 +26,7 @@
       </view>
       <view class="emptyView" wx:else>
         <text class="emptyText">暂无数据！</text>
-        <text class="emptyText">点击右上方+添加</text>
+        <text class="emptyText">在首页收藏的瓷砖会在此显示</text>
         <text class="emptyText">长按图片可以删除</text>
       </view>
 		</swiper-item>
@@ -49,14 +49,14 @@
       </view>
       <view class="emptyView" wx:else>
         <text class="emptyText">暂无数据！</text>
-        <text class="emptyText">点击右上方+添加</text>
+        <text class="emptyText">在首页收藏的样板间会在此显示</text>
         <text class="emptyText">长按图片可以删除</text>
       </view>
 		</swiper-item>
 	</block>
 </swiper>
 
-<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showMask}}">
+<!-- <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showMask}}">
   <view class="maskTop">
     <text class="maskTopText" bindtap="hideMaskClicked">返回</text>
     <text class="maskTopText" bindtap="uploadClicked">上传</text>
@@ -67,4 +67,4 @@
   <input class="maskInput" placeholder="输入名称" bindinput="addImageNameInput"></input>
   <view class="maskHolderLine"></view>
   <image class="addIcon" src="/images/addBlue.png" bindtap="addImageClicked" wx:if="{{addClicked}}"></image>
-</view>
+</view> -->
