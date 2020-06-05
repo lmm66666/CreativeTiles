@@ -144,15 +144,16 @@ Page({
             method: method
           },
           success(res){
-            if (res.data == 'success'){
-              that.initialData()
-            }
-            else{
+            if (res.data == 'error'){
               wx.showToast({
                 title: '上传失败',
                 icon: 'none',
                 duration: 1500
               })
+            }
+            else{
+              console.log(res)
+              that.initialData(res.data)
             }
           },
           fail(res){
@@ -195,15 +196,16 @@ Page({
                   openid: app.globalData.userInfo.openid,
                 },
                 success(res){
-                  if (res.data == 'success'){
-                    that.initialData()
-                  }
-                  else{
+                  if (res.data == 'error'){
                     wx.showToast({
                       title: '上传失败',
                       icon: 'fail',
                       duration: 1500
                     })
+                  }
+                  else{
+                    console.log(res)
+                    that.initialData(res.data)
                   }
                 },
                 fail(res){
@@ -235,11 +237,11 @@ Page({
     }
   },
 
-  initialData:function () {
+  initialData:function (randNum) {
     var type = 1
     var method = this.data.methodImgList[this.data.swiperIndex].url
-    var path = 'https://www.lmm666.top:4000/wechatProject/tileIndustry/resPic/' + app.globalData.userInfo.openid
-
+    var path = 'https://www.lmm666.top:4000/wechatProject/tileIndustry/resPic/' + app.globalData.userInfo.openid + randNum
+    console.log(path)
     if (method == 'fangxing'){
       var methodText = '方形'
       type = 0
