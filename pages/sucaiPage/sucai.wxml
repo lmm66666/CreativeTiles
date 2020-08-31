@@ -1,0 +1,44 @@
+<view class='whole-page-view'>
+
+  <view class='pic-view' style="width:{{windowWidth}}px; height:{{windowHeight*0.6}}px">
+    <view class='nopic-cell-view' wx:if="{{choosed_pic_flag==0}}">
+      <image src="/images/grayAdd.png" class="nopic-upload-prompt-pic"></image>
+      <text class="nopic-upload-prompt-text">{{"点击添加图片"}}</text>
+    </view>
+    <image wx:if="{{choosed_pic_flag==1}}" src="/images/addBlue.png" class='show-pic-img'
+    style="width:{{windowWidth*0.9}}px; height:{{windowWidth*0.9}}px"></image>
+  </view>
+
+  <view class='form-view'>
+    <view class="form-cell-view">
+      <view class="form-cell-cell-view">
+        <text class='form-cell-text'>{{"名称"}}</text>
+        <input class='form-text-input' placeholder="必填"></input>
+      </view>
+      <view class='seperate-row-view'></view>
+      <view class="form-cell-cell-view">
+        <text class='form-cell-text'>{{"高度(cm)"}}</text>
+        <input class='form-num-input' placeholder="必填" type='number'></input>
+      </view>
+    </view>
+
+    <view class="form-cell-view">
+      <view class="form-cell-cell-view">
+        <text class='form-cell-text'>{{"标签"}}</text>
+        <input class='form-text-input' placeholder="选填"></input>
+      </view>
+      <view class='seperate-row-view'></view>
+      <view class="form-cell-cell-view">
+        <text class='form-cell-text'>{{"高度(cm)"}}</text>
+        <input class='form-num-input' placeholder="必填" type='number'></input>
+      </view>
+    </view>
+  </view>
+ 
+
+  <view class='button-list-view'>
+    <button class='button' type="default">{{"重新选择"}}</button>
+    <button class='button' type="primary">{{"上传"}}</button>
+  </view>
+</view>
+

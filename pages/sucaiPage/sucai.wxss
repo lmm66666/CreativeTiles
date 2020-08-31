@@ -1,0 +1,106 @@
+.whole-page-view{
+  display: flex;
+  flex-direction: column;
+}
+
+.show-pic-img{
+  align-self: center;
+}
+
+.pic-view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
+.nopic-cell-view{
+  height: 300rpx;
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.nopic-upload-prompt-text{
+  font-size: 14px;
+  margin-top: 20rpx;
+}
+
+.nopic-upload-prompt-pic{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.form-view{
+  height: 30%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  margin-top: 100rpx;
+}
+
+.form-cell-view{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-cell-cell-view{
+  height: 40%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-cell-text{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 60rpx;
+}
+
+.form-num-input{
+  width: 20%;
+  height: 100%;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.form-text-input{
+  width: 40%;
+  height: 100%;
+  margin-left: 92rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.seperate-row-view{
+  height: 2rpx;
+  width: 100%;
+  background-color: whitesmoke; 
+}
+
+.button-list-view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 60rpx;
+  height: 300rpx;
+  width: 100%;
+  align-self: center;
+}
+
+.button{
+  width: 300rpx;
+  height: 90rpx;
+}
+

@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/sucaiPage/sucai",
     "pages/explorePage/explorePage",
-    "pages/analysisPage/analysisPage",
     "pages/calcPage/calcPage",
     "pages/storagePage/storagePage",
     "pages/commendPage/commendPage",
@@ -23,14 +23,8 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/explorePage/explorePage",
-        "text": "首页",
-        "iconPath": "images/explore.png",
-        "selectedIconPath": "images/explore.png"
-      },
-      {
-        "pagePath": "pages/analysisPage/analysisPage",
-        "text": "评测",
+        "pagePath": "pages/sucaiPage/sucai",
+        "text": "素材",
         "iconPath": "images/analysis.png",
         "selectedIconPath": "images/analysis.png"
       },
@@ -45,10 +39,19 @@
         "text": "收藏",
         "iconPath": "images/favourite.png",
         "selectedIconPath": "images/favourite.png"
+      },
+      {
+        "pagePath": "pages/explorePage/explorePage",
+        "text": "首页",
+        "iconPath": "images/explore.png",
+        "selectedIconPath": "images/explore.png"
       }
     ]
   },
   "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }, 
   "navigateToMiniProgramAppIdList": [
     "wx725c39fe8eb5e9bd",
     "wxdfa0c705aefeb61c",
