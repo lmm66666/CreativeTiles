@@ -52,6 +52,7 @@
   "useExtendedLib": {
     "weui": true
   }, 
+  "disableSwipeBack": true,
   "navigateToMiniProgramAppIdList": [
     "wx725c39fe8eb5e9bd",
     "wxdfa0c705aefeb61c",

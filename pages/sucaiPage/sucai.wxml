@@ -1,12 +1,14 @@
 <view class='whole-page-view'>
-
-  <view class='pic-view' style="width:{{windowWidth}}px; height:{{windowHeight*0.6}}px">
+  <view class='pic-view' style="width:{{windowWidth}}px; height:{{windowHeight}}px">
     <view class='nopic-cell-view' wx:if="{{choosed_pic_flag==0}}">
       <image src="/images/grayAdd.png" class="nopic-upload-prompt-pic"></image>
       <text class="nopic-upload-prompt-text">{{"点击添加图片"}}</text>
     </view>
     <image wx:if="{{choosed_pic_flag==1}}" src="/images/addBlue.png" class='show-pic-img'
     style="width:{{windowWidth*0.9}}px; height:{{windowWidth*0.9}}px"></image>
+  </view>
+  <view class='mask-view' style="width:{{maskWidth}}px; height:{{maskHeight}}px; left:{{maskMarginLeft}}px; top:{{maskMarginTop}}px;"
+  bindtouchstart="maskStart" bindtouchmove='maskChange' bindtouchend='maskEnd'>
   </view>
 
   <view class='form-view'>
