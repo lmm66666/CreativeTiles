@@ -31,7 +31,7 @@
       </view>
       <view class='seperate-row-view'></view>
       <view class="form-cell-cell-view">
-        <text class='form-cell-text'>{{"高度(cm)"}}</text>
+        <text class='form-cell-text'>{{"宽度(cm)"}}</text>
         <input class='form-num-input' placeholder="必填" type='number'></input>
       </view>
     </view>
