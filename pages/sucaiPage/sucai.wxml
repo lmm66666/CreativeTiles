@@ -10,7 +10,7 @@
   <view class='mask-view' style="width:{{maskWidth}}px; height:{{maskHeight}}px; left:{{maskMarginLeft}}px; top:{{maskMarginTop}}px;"
   bindtouchstart="maskStart" bindtouchmove='maskChange' bindtouchend='maskEnd'>
   </view>
-
+  <text class="pic-view-intr-text">{{"移动边框裁剪"}}</text>
   <view class='form-view'>
     <view class="form-cell-view">
       <view class="form-cell-cell-view">
