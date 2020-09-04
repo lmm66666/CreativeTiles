@@ -1,14 +1,15 @@
 {
   "pages": [
-    "pages/sucaiPage/sucai",
-    "pages/explorePage/explorePage",
-    "pages/calcPage/calcPage",
-    "pages/storagePage/storagePage",
-    "pages/commendPage/commendPage",
-    "pages/brandPage/brandPage",
-    "pages/detailPage/detailPage",
-    "pages/searchPage/searchPage",
-    "pages/DIY_UploadPage/DIY_UploadPage"
+    "pages/second/sucaiPage/sucai",
+    "pages/first/explorePage/explore",
+    "pages/first/swiper/calcPage/calc",
+    "pages/forth/storagePage/storage",
+    "pages/first/swiper/commendPage/commend",
+    "pages/first/swiper/brandPage/brand",
+    "pages/first/detailPage/detail",
+    "pages/first/morePage/more",
+    "pages/first/searchPage/search",
+    "pages/third/diyPage/diy"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,25 +24,25 @@
     "position": "bottom",
     "list": [
       {
-        "pagePath": "pages/sucaiPage/sucai",
+        "pagePath": "pages/second/sucaiPage/sucai",
         "text": "素材",
         "iconPath": "images/analysis.png",
         "selectedIconPath": "images/analysis.png"
       },
       {
-        "pagePath": "pages/DIY_UploadPage/DIY_UploadPage",
+        "pagePath": "pages/third/diyPage/diy",
         "text": "探索",
         "iconPath": "images/DIY.png",
         "selectedIconPath": "images/DIY.png"
       },
       {
-        "pagePath": "pages/storagePage/storagePage",
+        "pagePath": "pages/forth/storagePage/storage",
         "text": "收藏",
         "iconPath": "images/favourite.png",
         "selectedIconPath": "images/favourite.png"
       },
       {
-        "pagePath": "pages/explorePage/explorePage",
+        "pagePath": "pages/first/explorePage/explore",
         "text": "首页",
         "iconPath": "images/explore.png",
         "selectedIconPath": "images/explore.png"
@@ -51,7 +52,7 @@
   "sitemapLocation": "sitemap.json",
   "useExtendedLib": {
     "weui": true
-  }, 
+  },
   "navigateToMiniProgramAppIdList": [
     "wx725c39fe8eb5e9bd",
     "wxdfa0c705aefeb61c",

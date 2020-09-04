@@ -6,7 +6,7 @@
 
 .mask-view{
   position: absolute;
-  background-color: red;
+  background-color: yellow;
   opacity: 0.10;
   z-index: 3;
 }

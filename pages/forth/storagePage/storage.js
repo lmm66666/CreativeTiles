@@ -2,7 +2,7 @@
 const DB = wx.cloud.database().collection("storage")
 import {
   cloudFormatTime
-} from '../../utils/util.js'
+} from '../../../utils/util.js'
 
 Page({
 
