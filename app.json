@@ -1,15 +1,15 @@
 {
   "pages": [
-    "pages/second/sucaiPage/sucai",
-    "pages/first/explorePage/explore",
-    "pages/first/swiper/calcPage/calc",
-    "pages/forth/storagePage/storage",
-    "pages/first/swiper/commendPage/commend",
-    "pages/first/swiper/brandPage/brand",
     "pages/first/detailPage/detail",
     "pages/first/morePage/more",
+    "pages/first/explorePage/explore",
+    "pages/first/swiper/calcPage/calc",
+    "pages/first/swiper/commendPage/commend",
+    "pages/first/swiper/brandPage/brand",
     "pages/first/searchPage/search",
-    "pages/third/diyPage/diy"
+    "pages/second/sucaiPage/sucai",
+    "pages/third/diyPage/diy",
+    "pages/forth/storagePage/storage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,6 +24,12 @@
     "position": "bottom",
     "list": [
       {
+        "pagePath": "pages/first/detailPage/detail",
+        "text": "探索",
+        "iconPath": "images/explore.png",
+        "selectedIconPath": "images/explore.png"
+      },
+      {
         "pagePath": "pages/second/sucaiPage/sucai",
         "text": "素材",
         "iconPath": "images/analysis.png",
@@ -31,7 +37,7 @@
       },
       {
         "pagePath": "pages/third/diyPage/diy",
-        "text": "探索",
+        "text": "diy",
         "iconPath": "images/DIY.png",
         "selectedIconPath": "images/DIY.png"
       },
@@ -40,12 +46,6 @@
         "text": "收藏",
         "iconPath": "images/favourite.png",
         "selectedIconPath": "images/favourite.png"
-      },
-      {
-        "pagePath": "pages/first/explorePage/explore",
-        "text": "首页",
-        "iconPath": "images/explore.png",
-        "selectedIconPath": "images/explore.png"
       }
     ]
   },

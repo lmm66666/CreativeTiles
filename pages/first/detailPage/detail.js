@@ -5,14 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    detail:[
+      {
+        text: "品牌",
+        ans: '马可波罗'
+      },
+      {
+        text: "系列",
+        ans: '罗马新时代'
+      },
+      {
+        text: "尺寸",
+        ans: '1080*800'
+      },
+      {
+        text: "颜色",
+        ans: '灰色'
+      },
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '瓷砖详情' 
+    })
   },
 
   /**

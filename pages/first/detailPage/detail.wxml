@@ -1,2 +1,15 @@
-<!--pages/first/detailPage/detail.wxml-->
-<text>pages/first/detailPage/detail.wxml</text>
+<image class="show-img" src="/images/tile.jpg"></image>
+<view class='down-view'>
+  <view class='detail-title-view'>
+  <text class="title-text">{{"瓷砖型号"}}</text>
+  <text class='title-ans-text'>{{"PMW82382347834"}}</text>
+  </view>
+  <view class='seperate-view'></view>
+  <block wx:for="{{detail}}">
+    <view class="detail-view">
+      <text class="detail-text">{{item.text}}</text>
+      <text class='detail-ans-text'>{{item.ans}}</text>
+    </view>
+  </block>
+</view>
+
